@@ -1,0 +1,22 @@
+// schema.prisma
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+enum Difficulty {
+  EASY
+  MEDIUM
+  HARD
+}
+
+model Flashcard {
+  id         Int     @id @default(autoincrement())
+  category   String?
+  question   String
+  answer     String
+  difficulty Difficulty? @default(EASY)  // 默认 EASY
+}

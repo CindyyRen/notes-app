@@ -1,0 +1,367 @@
+{
+  "flashcards": [
+    {
+      "id": 1,
+      "question": "What is React?",
+      "answer": "A **JavaScript library** for building **reusable UI components** with **Virtual DOM** and **declarative rendering**.\n\n**declarative rendering** = JSX + Components, Props/State control, Virtual DOM updates DOM",
+      "category": "React Basics",
+      "difficulty": 1
+    },
+    {
+      "id": 2,
+      "question": "What is the Role of React in software development?",
+      "answer": "Build SPAs (Single Page Applications)\n\n**它如何实现这个作用：**\n- **Component-based architecture** - 通过组件化让代码更模块化、可复用\n- **Virtual DOM** - 通过虚拟DOM提高性能和渲染效率\n- **Declarative programming** - 声明式编程让UI更容易预测和调试\n- **State management** - 高效的状态管理Unidirectional Data Flow + Hooks\n\n**额外能力：**\n- **React Native** - 扩展到移动端开发（但这不是React本身，是生态系统）",
+      "category": "React Basics",
+      "difficulty": 2
+    },
+    {
+      "id": 3,
+      "question": "What are the Key Features of React?",
+      "answer": "- **JSX** - JavaScript XML syntax extension\n- **Virtual DOM** - Efficient rendering and performance optimization\n- **Component-Based Architecture** - Reusable, modular UI building blocks\n- **Unidirectional Data Flow** - Predictable state management\n- **Hooks** - State and lifecycle management in functional components\n- **Declarative Programming** - Describe what UI should look like, not how",
+      "category": "React Basics",
+      "difficulty": 2
+    },
+    {
+      "id": 4,
+      "question": "What is DOM?",
+      "answer": "**Document Object Model** --- webpage as a tree of objects.",
+      "category": "Web Fundamentals",
+      "difficulty": 1
+    },
+    {
+      "id": 5,
+      "question": "What is the difference between HTML and DOM?",
+      "answer": "- HTML：source code, static and text-based\n- DOM：dynamic, interactive representation of the web page",
+      "category": "Web Fundamentals",
+      "difficulty": 1
+    },
+    {
+      "id": 6,
+      "question": "What is Virtual DOM?",
+      "answer": "- Virtual DOM: In-memory representation of the real DOM\n- Real DOM: Actual browser DOM\n\nVirtual DOM faster; real DOM slower to update.",
+      "category": "React Core",
+      "difficulty": 2
+    },
+    {
+      "id": 7,
+      "question": "What are React Components? What are the main elements of it?",
+      "answer": "**React Components**\n- **Definition**: Reusable building blocks of a UI.\n\n**Main Elements**\n- **Props** -- Inputs from parent (read-only)\n- **State** -- Internal data that drives UI updates\n- **Render / JSX** -- Describes what UI looks like\n- **Lifecycle / Hooks** -- Handle side-effects\n- **Events / Methods** -- Respond to user actions",
+      "category": "Components",
+      "difficulty": 2
+    },
+    {
+      "id": 8,
+      "question": "What is SPA(Single Page Application)?",
+      "answer": "**Single Page Application** --- web app without full page reload.",
+      "category": "Web Architecture",
+      "difficulty": 1
+    },
+    {
+      "id": 9,
+      "question": "What are the 5 Advantages of React?",
+      "answer": "- **Modular & Reusable Components** → Component-based architecture\n- **Fast Rendering & Performance** → Virtual DOM optimization\n- **Predictable Data Flow** → One-way data binding, easier debugging\n- **Developer-Friendly Syntax** → JSX + Declarative programming\n- **Strong Ecosystem** → Rich libraries and community support\n- **Cross-Platform Development** → React Native for mobile apps\n- **SEO-Friendly** → Server-side rendering capabilities (Next.js)",
+      "category": "React Basics",
+      "difficulty": 2
+    },
+    {
+      "id": 10,
+      "question": "What is the role of JSX in React? (3 points)",
+      "answer": "\"JSX declares the UI, combines components, and embeds JS logic.\"\n\n- **Declarative UI** → Describe what the UI should look like, making it **easy to write, read, and maintain**\n- **Component Composition** → Combine components; make them **reusable and maintainable**\n- **JavaScript Integration** → Embed JS logic; make UI **interactive**",
+      "category": "JSX",
+      "difficulty": 2
+    },
+    {
+      "id": 11,
+      "question": "What is the difference between Declarative & Imperative syntax?",
+      "answer": "*Declarative: **what to do***\n*Imperative: **how to do***\n\n*JSX, Component, and Unidirectional Data Flow declare **what the UI should be**; Virtual DOM and Hooks are **technical mechanisms that make this declarative approach efficient***",
+      "category": "Programming Concepts",
+      "difficulty": 2
+    },
+    {
+      "id": 12,
+      "question": "What is Arrow Function Expression in JSX?",
+      "answer": "- **Concise syntax** for inline functions in JSX elements\n- Used in **dynamic rendering** (map), **conditional rendering**, and **array operations** (filter, map)\n- Useful for **event handling** (onClick, onChange) and **async callbacks** (setTimeout, fetch)\n- **Class components** → Used to **preserve this context** without manually binding methods\n\n**Examples:**\n- **Event handlers** → onClick={() => handleClick()}\n- **Array rendering** → {items.map(item => <Item key={item.id} />)}\n- **Conditional rendering** → {isVisible && (() => <Component />)()}\n- **Inline calculations** → {users.filter(u => u.active).length}",
+      "category": "JSX",
+      "difficulty": 2
+    },
+    {
+      "id": 13,
+      "question": "How React App Load and display the components in browser?",
+      "answer": "\"React apps load in a few simple steps: the browser downloads the HTML and JS bundle, React mounts the root component using createRoot, builds a Virtual DOM and renders it to the real DOM, and later updates only the parts that change using the diff algorithm.\"\n\n**Download → Mount → Render → Update**\n\n- Download: HTML + JS\n- Mount: createRoot --- <div id=\"root\"></div>\n- Render: Virtual DOM → Real DOM\n- Update: diff algorithm",
+      "category": "React Core",
+      "difficulty": 2
+    },
+    {
+      "id": 14,
+      "question": "React Performance Essentials (3 points)",
+      "answer": "- **Virtual DOM Diff** -- only updates changed parts\n- **Batching Updates** -- React merges multiple state updates\n- **Code Splitting / Lazy Loading** -- load code on demand, reduce initial bundle\n\n**React 17：**事件(比如onClick)里批量，异步(setTimeout / Promise / 原生事件)里不批量\n**React 18：**任何地方都自动批量\n\n**实现原理：**setState → 入队 → 调度器（event loop 结束时）→ 统一 diff → 一次性 DOM 更新",
+      "category": "Performance",
+      "difficulty": 3
+    },
+    {
+      "id": 15,
+      "question": "Why is the Virtual DOM fast?",
+      "answer": "**简洁版：**Because it reduces direct DOM operations by working with Virtual DOM.\n\n**深入解释：**React updates a Virtual DOM first, then applies only the minimal real DOM changes.",
+      "category": "React Core",
+      "difficulty": 2
+    },
+    {
+      "id": 16,
+      "question": "Difference between initial render and re-render?",
+      "answer": "**简洁版：**Initial render creates DOM, re-render updates only changed parts.\n\n**深入解释：**Re-render uses diffing to minimize changes.",
+      "category": "React Core",
+      "difficulty": 2
+    },
+    {
+      "id": 17,
+      "question": "What's new in React 18?",
+      "answer": "**简洁版：**Concurrent rendering, auto batching, improved Suspense.\n\n**深入解释：**They make apps smoother and faster.\n\n- *Concurrent Rendering = controls when to render*\n- *Automatic Batching = controls how updates are combined*\n- *Improved Suspense = handles async smoothly*",
+      "category": "React 18",
+      "difficulty": 3
+    },
+    {
+      "id": 18,
+      "question": "What is Automatic Batching in React 18?",
+      "answer": "- **What:** Combines multiple setState calls into **one render**\n- **Where:** Works in **all code**, including async (setTimeout, Promise)\n- **Why:** Reduces unnecessary DOM updates, improves performance",
+      "category": "React 18",
+      "difficulty": 3
+    },
+    {
+      "id": 19,
+      "question": "React 18 Concurrent Mode/Scheduler",
+      "answer": "- **What:** React decides the **best time to render** updates\n- **Why:** Keeps UI responsive, handles large updates efficiently\n\n**Concurrent Mode** = 开启 React 并发特性的模式（开关）。通过createRoot\n**Concurrent Rendering** = React 在该模式下的具体行为和能力（渲染策略）。",
+      "category": "React 18",
+      "difficulty": 3
+    },
+    {
+      "id": 20,
+      "question": "How React provides Reusability and Composition?",
+      "answer": "*Reusability → write once, use many times*\n*Composition → build complex UI from simple parts*\n\n**Reusability (可复用性)**\n- **Components** → modular, reusable UI blocks\n- **Custom Hooks** → reusable logic across components\n\n**Composition (组合性)**\n- Children Props Pattern → Pass components or render functions to components\n- Component Composition → Combine smaller components into complex UIs\n- Higher-Order Components (HOC) → Wrap components to add reusable behavior",
+      "category": "React Patterns",
+      "difficulty": 3
+    },
+    {
+      "id": 21,
+      "question": "React Hooks 的规则",
+      "answer": "\"Functions only, Top level only, Dependencies accurate\"\n\n- **Call Only in Functional Components or Hooks**\n  Use inside **function components** or **other hooks**\n  Don't use in **classes** or **regular functions**\n\n- **Call at the Top Level**\n  Always at the **top of the function**\n  Don't call inside **if, for, while, switch**\n  Keeps **hook call order consistent**\n\n- **Keep Dependencies Accurate**\n  Include **all external variables** used inside useEffect, useCallback, useMemo\n  Helps avoid **stale closures** or **bugs**",
+      "category": "Hooks",
+      "difficulty": 3
+    },
+    {
+      "id": 22,
+      "question": "What are Custom Hooks?",
+      "answer": "*Custom Hooks are a mechanism to reuse stateful logic between components.*",
+      "category": "Hooks",
+      "difficulty": 3
+    },
+    {
+      "id": 23,
+      "question": "Custom Hooks 的规则",
+      "answer": "- **Func** → Hooks only in **function components or other hooks**\n- **Top** → Hooks must be at **top level**, not in if/for/while/switch\n- **Dep** → **Dependencies accurate** in useEffect, useCallback, useMemo\n- **Use prefix** → Custom Hook must **start with** use\n- **Single job** → Custom Hook should **do only one thing**, encapsulate logic",
+      "category": "Hooks",
+      "difficulty": 3
+    },
+    {
+      "id": 24,
+      "question": "Component Composition",
+      "answer": "- **Combine small components** → Build complex UIs from small, focused components\n- **Flexible children** → Use children prop to insert any JSX\n- **Function props** / **Render props** → Pass functions(returns JSX) to control how content is rendered\n- **Benefits** → Single responsibility, reusable, readable",
+      "category": "React Patterns",
+      "difficulty": 3
+    },
+    {
+      "id": 25,
+      "question": "Composition vs Inheritance",
+      "answer": "\"React recommends composition over inheritance\" - 直接点出了官方立场\n\"More flexible than inheritance\" - 核心优势\n\"Combine smaller components instead of extending\" - 具体做法\n\"Without tightly coupling\" - 关键好处\n\"Improves reuse and maintainability\" - 实际价值",
+      "category": "React Patterns",
+      "difficulty": 3
+    },
+    {
+      "id": 26,
+      "question": "What are State, Stateless, Stateful and State Management terms?",
+      "answer": "**State** → data that changes & triggers re-render\n**Stateless** → no state, just props → renders UI\n**Stateful** → holds own state & logic, can update itself\n**State Management** → organize & share state across components\n\n**State**\n- Represents **data that can change** over time in a component\n- Stored in **component memory** (useState in function components, this.state in class components)\n- Changes in state **trigger UI re-render**\n\n**Stateless (Functional / Presentational Component)**\n- A component that **does not hold its own state**\n- Receives data and callbacks via **props**\n- Purely **renders UI based on props**\n\n**Stateful (Container / Smart Component)**\n- A component that **maintains its own state**\n- Handles **logic and state changes** internally\n- Can pass state or callbacks to **child components**\n\n**State Management**\n- The practice of **organizing and controlling state across components**\n- Helps **share state**, **avoid prop drilling**, and **maintain consistency**\n- Examples: **React Context, Redux, MobX, Zustand**",
+      "category": "State Management",
+      "difficulty": 2
+    },
+    {
+      "id": 27,
+      "question": "What are Props in JSX?",
+      "answer": "- **Read-only inputs** → 子组件不能修改 props\n- **From parent** → 父组件传给子组件\n- **Customize child component** → 控制显示或行为\n- **Reusable & configurable** → 组件可复用，可配置",
+      "category": "Props",
+      "difficulty": 2
+    },
+    {
+      "id": 28,
+      "question": "What is the role of public folder in React?",
+      "answer": "- **Static files served as-is原样** → 不经过 Webpack 打包\n- **index.html is app entry** → React 入口文件\n- **Assets via absolute paths** → 图片、favicon 等可以直接访问",
+      "category": "Project Structure",
+      "difficulty": 1
+    },
+    {
+      "id": 29,
+      "question": "What is the role of src folder in React?",
+      "answer": "1. **React source code** → 所有源代码\n2. **Components & styles** → 组件、CSS/SCSS 等\n3. **Processed by Webpack** → 会被打包、优化\n4. **index.js is entry** → 应用入口文件",
+      "category": "Project Structure",
+      "difficulty": 1
+    },
+    {
+      "id": 30,
+      "question": "What is the role of index.html page in React?",
+      "answer": "- index.html is the **single HTML-level entry point** of a React app\n- Provides a **<div>** (usually id=\"root\") as the mounting point for React components\n- Loads the bundled JavaScript that renders the app dynamically\n- Holds **static content** like meta tags, favicon, and SEO info",
+      "category": "Project Structure",
+      "difficulty": 2
+    },
+    {
+      "id": 31,
+      "question": "What is the role of index.js file and ReactDOM in React?",
+      "answer": "Key distinction: **index.js handles app setup**, **ReactDOM handles actual DOM rendering**.\n\n**index.html = static shell + root div**\n**index.js = setup + mount**\n**ReactDOM = render only**\n\n**index.js:**\n- **JS-level entry point** of the React app\n- **Mounts** the root React component to the DOM\n- Often sets up **app-wide configurations** (optional): Providers, global state (e.g., Redux), routing (e.g., BrowserRouter)\n\n**ReactDOM:**\n- Provides **DOM-specific methods** for React\n- Main methods: ReactDOM.render() or ReactDOM.createRoot().render()\n- Responsible only for **rendering React elements** into the DOM",
+      "category": "Project Structure",
+      "difficulty": 2
+    },
+    {
+      "id": 32,
+      "question": "What is the role of App.js file in React?",
+      "answer": "- **Render Child Components** -- 引入并渲染页面、功能模块或 UI 组件\n- **Routing Setup** -- 常见设置路由（react-router-dom）\n- **State Management** -- 局部状态 (useState/useEffect) 或集成全局状态 (Redux)\n- **Styling & Layout** -- 全局布局和样式，定义页面主要结构\n- **Error Boundaries** -- 捕获子组件错误，防止应用崩溃",
+      "category": "Project Structure",
+      "difficulty": 2
+    },
+    {
+      "id": 33,
+      "question": "What is the role of function and return inside App.js?",
+      "answer": "*The function contains the logic of the component, and the return defines its UI.*\n\n**Function**\n- Defines the component (App) as a JavaScript function\n- Handles logic: state (useState), side effects (useEffect), event handlers, etc.\n\n**Return**\n- Must return **JSX-** describes what UI should look like\n- Must return a single parent element\n- Can include **child components**, **HTML-like structure**, **conditional rendering, dynamic data, dynamic lists**, etc.",
+      "category": "Components",
+      "difficulty": 2
+    },
+    {
+      "id": 34,
+      "question": "Can we have a function without a return inside App.js?",
+      "answer": "**Component = must return JSX** **(or null)**\n**Helper = can do anything, no JSX required**\n\n- **Logging to console**\n- **Updating state** (using useState, without returning JSX)\n- **Triggering side effects** (like alert() or timers)\n- **Making API calls**",
+      "category": "Components",
+      "difficulty": 2
+    },
+    {
+      "id": 35,
+      "question": "What is the role of export default inside App.js?",
+      "answer": "*export default allows the component to be imported easily in other files.*\n\n*Default export = easy import, one per file*\n*Component is reusable across the app*",
+      "category": "Components",
+      "difficulty": 1
+    },
+    {
+      "id": 36,
+      "question": "Does the file name and the component name must be same in React?",
+      "answer": "do not **have to** be the same in React, but it is considered a **best practice** to keep them consistent.",
+      "category": "Components",
+      "difficulty": 1
+    },
+    {
+      "id": 37,
+      "question": "What is the role of JSX in React? (3 points)",
+      "answer": "*JSX allows you to write HTML-like syntax inside JavaScript to describe the UI.*\n\n- JSX = **JavaScript XML**\n- Lets you **define React elements in a syntax similar to HTML**\n- Can include **dynamic content** using {} (e.g., variables, expressions)\n- Makes code **readable and declarative**\n- Under the hood, JSX is **transpiled to React.createElement()**\n- 不能写：if / else / for / while / switch / try...catch/var/let/const 声明",
+      "category": "JSX",
+      "difficulty": 2
+    },
+    {
+      "id": 38,
+      "question": "What are the 5 Advantages of JSX?",
+      "answer": "\"Readable, Dynamic, Safe, IDE-friendly, React-ready\" → RDSIR\n\n- **Declarative & Readable --** UI looks like HTML, easy to understand\n- **Dynamic --** Can use {} for variables, loops, conditions\n- **Safe --** Compile-time checks reduce runtime errors\n- **IDE-friendly --** Syntax highlighting, autocompletion, linting\n- **React-ready --** Translates to React.createElement() automatically",
+      "category": "JSX",
+      "difficulty": 2
+    },
+    {
+      "id": 39,
+      "question": "What is Babel?",
+      "answer": "*Babel is a popular open-source JavaScript compiler and transpiler.*\n\n*Babel is the **bridge between JSX(declarative UI) and JavaScript logic**, making React components easier to write and read*\n\n- **Transpilation** -- Converts modern JS (ES6+) to older JS (ES5) for browser compatibility\n- **Polyfills** -- Adds missing features for older browsers (via core-js/@babel/polyfill)\n- **JSX transformation** -- Converts JSX into React.createElement() calls\n\n**Compilation：** C, C++, or Java into machine code or bytecode\n**Transpilation：** converting source code from one programming language to another",
+      "category": "Build Tools",
+      "difficulty": 2
+    },
+    {
+      "id": 40,
+      "question": "What is the role of Fragment in JSX?",
+      "answer": "*Fragment = invisible wrapper for multiple elements, better performance & cleaner JSX*\n\n- **Invisible wrapper** for multiple elements\n- **React.Fragment or shorthand (<>...</>)**\n- **Avoids extra DOM nodes** → keeps JSX cleaner and easier to maintain",
+      "category": "JSX",
+      "difficulty": 2
+    },
+    {
+      "id": 41,
+      "question": "What is Spread Operator in JSX?",
+      "answer": "*...object → spreads object properties as props, enables multiple props, merging, forwarding, and cloning efficiently*\n\n- **Props Spreading** → spreads all object properties into a component\n- **Props Merging** → combines object props with extra props\n- **Props Forwarding** → passes props to child unchanged\n- **Props Cloning** → copies props and optionally changes some\n\n**Examples:**\n- **Passing Multiple Props Efficiently**: const props = { name: 'John', age: 25, job: 'Developer' }; <Profile {...props} />\n- **Merging Props**: const props = { name: 'John', age: 25 }; <Profile {...props} job=\"Developer\" />\n- **Props Forwarding**: function WrapperComponent(props) { return <ChildComponent {...props} />; }\n- **Cloning Props**: const clonedButton = <Button {...originalButtonProps} color=\"blue\" />;",
+      "category": "JSX",
+      "difficulty": 2
+    },
+    {
+      "id": 42,
+      "question": "What are the types of Conditional Rendering in JSX?",
+      "answer": "\"Ternary ?:, Logical &&\"\n\n- **Ternary ?** → 简洁 inline 条件\n- **Logical &&** → 条件为 true 时渲染，可选显示",
+      "category": "JSX",
+      "difficulty": 2
+    },
+    {
+      "id": 43,
+      "question": "How do you iterate over a list in JSX? What is map() method?",
+      "answer": "- map() → iterate + return JSX\n- Key → unique for each item\n- Avoid index as key",
+      "category": "JSX",
+      "difficulty": 2
+    },
+    {
+      "id": 44,
+      "question": "React Large List Performance -- Quick Memory",
+      "answer": "\"Windowing/Virtualization, Lazy/Infinite Scroll, Pagination, Memoization, Web Workers\"\n\n**Data layer (reduce data fetched) 数据层面（减少数据量）:**\n- **Pagination** → load page by page\n- **Lazy Loading / Infinite Scroll** → load more on scroll\n\n**Render layer (reduce DOM) 渲染层面（减少DOM）:**\n- **Windowing/Virtualization** → render only visible items (react-window, react-virtualized)\n- **Memoization** → skip re-renders for unchanged items(React.memo, useMemo, useCallback)\n\n**Compute layer (reduce main thread load) 计算层面（不阻塞UI）:**\n- **Web Workers** → offload heavy sorting/filtering\n\n**React 18 Boosters:** Concurrent Rendering, Async Suspense, Automatic Batching\n\n**By Size:**\n- **Small (<100):** Memoization\n- **Medium (100-1000):** Pagination / Lazy Scroll\n- **Large (1000+):** Windowing + Memoization\n- **Huge / heavy CPU:** Windowing + Web Workers",
+      "category": "Performance",
+      "difficulty": 3
+    },
+    {
+      "id": 45,
+      "question": "Can a browser read a JSX File?",
+      "answer": "No, a browser cannot directly read a JSX file. so it must be **transpiled** into JavaScript using tools like Babel.",
+      "category": "Build Tools",
+      "difficulty": 2
+    },
+    {
+      "id": 46,
+      "question": "What is Transpiler? What is the difference between Compiler & Transpiler?",
+      "answer": "**Transpiler** = *source-to-source compiler*\n\n- Converts code from one **high-level language** to another **high-level language**\n- Example: **Babel** converts ES6+ → ES5\n\n**Compiler** = *high-level → low-level*\n\n- Converts code from **high-level language** → **machine code / bytecode**\n- Example: C → Assembly / Java → JVM bytecode\n\n*Compiler → machine-ready*\n*Transpiler → language-ready / compatible with older version*",
+      "category": "Build Tools",
+      "difficulty": 2
+    },
+    {
+      "id": 47,
+      "question": "Is it possible to use JSX without React?",
+      "answer": "Yes, it is possible to use JSX without React.",
+      "category": "JSX",
+      "difficulty": 2
+    },
+    {
+      "id": 48,
+      "question": "What are the Types of React components?",
+      "answer": "**Functional Components**: Components defined as **functions** that return JSX.\n**Class Components**: Components defined as **ES6 classes** extending React.Component\n\n**Functional = Function + Hooks**\n**Class = Class + Lifecycle**\n\n\"React components are either functional (functions + hooks, preferred) or class (ES6 class + state/lifecycle).\"",
+      "category": "Components",
+      "difficulty": 2
+    },
+    {
+      "id": 49,
+      "question": "How do you pass data between functional components in React?",
+      "answer": "**Props → Callback → Lift State → Context/Redux**\n\n**Parent → Child**\n- Pass data via **props**\n\n**Child → Parent**\n- Pass a **callback function** as a prop\n\n**Sibling → Sibling**\n- **Lift state** to common parent, share via props\n\n**Deep / Global Communication**\n- Use **Context API** or **state management** (Redux, Zustand)\n- Avoid **prop drilling**",
+      "category": "Components",
+      "difficulty": 2
+    },
+    {
+      "id": 50,
+      "question": "What is Prop Drilling in React?",
+      "answer": "- **What:** Passing props through many layers to reach a child\n- **Problem:** Intermediate components just pass props → messy code\n- **Example:** Parent → Child A → Child B → Child C (needs the prop)\n- **Fix:** Use **Context API** or **state management** (Redux, Zustand, etc.)\n- **Tip:** Fine for small trees; avoid for large/deep trees",
+      "category": "Props",
+      "difficulty": 2
+    },
+    {
+      "id": 51,
+      "question": "Why to Avoid Prop Drilling? In how many ways can avoid Prop Drilling?",
+      "answer": "Avoid prop drilling because it makes code messy, hard to maintain, hard to refactor, and reduces readability.\n\n**Ways to Avoid Prop Drilling**\n- **Context API** → Provide data globally to any component in the tree\n- **State management libraries** → Redux, Zustand, Recoil, etc.\n- **Component composition / render props** → Pass functions or children selectively\n- **Hooks for shared state** → Custom hooks to share logic without passing props",
+      "category": "Props",
+      "difficulty": 3
+    },
+    {
+      "id": 52,
+      "question": "What are Class Components In React?",
+      "answer": "- **Definition:** ES6 classes extending React.Component\n\n**State & Props:**\n- this.state → component's local state\n- this.props → props passed from parent\n- Update state with this.setState()\n\n**Lifecycle Methods:**\n- componentDidMount, componentDidUpdate, componentWillUnmount\n\n**Event Handling:**\n- Can handle events; bind methods to class instance using this\n\n**Rendering JSX:**\n- Must implement a render() method",
+      "category": "Components",
+      "difficulty": 2
+    }
+  ]}
