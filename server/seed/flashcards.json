@@ -1,340 +1,347 @@
 {
   "flashcards": [
     {
-      "id": 1,
+      "id": 100000,
       "question": "What is React?",
       "answer": "A **JavaScript library** for building **reusable UI components** with **Virtual DOM** and **declarative rendering**.\n\n**declarative rendering** = JSX + Components, Props/State control, Virtual DOM updates DOM",
       "category": "React Basics",
       "difficulty": 1
     },
     {
-      "id": 2,
+      "id": 100001,
       "question": "What is the Role of React in software development?",
       "answer": "Build SPAs (Single Page Applications)\n\n**它如何实现这个作用：**\n- **Component-based architecture** - 通过组件化让代码更模块化、可复用\n- **Virtual DOM** - 通过虚拟DOM提高性能和渲染效率\n- **Declarative programming** - 声明式编程让UI更容易预测和调试\n- **State management** - 高效的状态管理Unidirectional Data Flow + Hooks\n\n**额外能力：**\n- **React Native** - 扩展到移动端开发（但这不是React本身，是生态系统）",
       "category": "React Basics",
       "difficulty": 2
     },
     {
-      "id": 3,
+      "id": 100002,
       "question": "What are the Key Features of React?",
       "answer": "- **JSX** - JavaScript XML syntax extension\n- **Virtual DOM** - Efficient rendering and performance optimization\n- **Component-Based Architecture** - Reusable, modular UI building blocks\n- **Unidirectional Data Flow** - Predictable state management\n- **Hooks** - State and lifecycle management in functional components\n- **Declarative Programming** - Describe what UI should look like, not how",
       "category": "React Basics",
       "difficulty": 2
     },
     {
-      "id": 4,
+      "id": 100003,
       "question": "What is DOM?",
       "answer": "**Document Object Model** --- webpage as a tree of objects.",
-      "category": "Web Fundamentals",
+      "category": "DOM",
       "difficulty": 1
     },
     {
-      "id": 5,
+      "id": 100004,
       "question": "What is the difference between HTML and DOM?",
-      "answer": "- HTML：source code, static and text-based\n- DOM：dynamic, interactive representation of the web page",
-      "category": "Web Fundamentals",
+      "answer": "L：source code, static and text-based\n- DOM：dynamic, interactive representation of the web page",
+      "category": "DOM",
       "difficulty": 1
     },
     {
-      "id": 6,
+      "id": 100005,
       "question": "What is Virtual DOM?",
-      "answer": "- Virtual DOM: In-memory representation of the real DOM\n- Real DOM: Actual browser DOM\n\nVirtual DOM faster; real DOM slower to update.",
-      "category": "React Core",
-      "difficulty": 2
+      "answer": "- Virtual DOM: In-memory representation of the real DOM\n- Real DOM: Actual browser DOM",
+      "category": "Virtual DOM",
+      "difficulty": 1
     },
     {
-      "id": 7,
+      "id": 100006,
+      "question": "Difference between DOM and Virtual DOM?",
+      "answer": "Virtual DOM faster; real DOM slower to update.",
+      "category": "Virtual DOM",
+      "difficulty": 1
+    },
+    {
+      "id": 100007,
       "question": "What are React Components? What are the main elements of it?",
       "answer": "**React Components**\n- **Definition**: Reusable building blocks of a UI.\n\n**Main Elements**\n- **Props** -- Inputs from parent (read-only)\n- **State** -- Internal data that drives UI updates\n- **Render / JSX** -- Describes what UI looks like\n- **Lifecycle / Hooks** -- Handle side-effects\n- **Events / Methods** -- Respond to user actions",
       "category": "Components",
       "difficulty": 2
     },
     {
-      "id": 8,
+      "id": 100008,
       "question": "What is SPA(Single Page Application)?",
-      "answer": "**Single Page Application** --- web app without full page reload.",
-      "category": "Web Architecture",
+      "answer": "- **Single Page Application** --- web app without full page reload.",
+      "category": "React Basics",
       "difficulty": 1
     },
     {
-      "id": 9,
+      "id": 100009,
       "question": "What are the 5 Advantages of React?",
       "answer": "- **Modular & Reusable Components** → Component-based architecture\n- **Fast Rendering & Performance** → Virtual DOM optimization\n- **Predictable Data Flow** → One-way data binding, easier debugging\n- **Developer-Friendly Syntax** → JSX + Declarative programming\n- **Strong Ecosystem** → Rich libraries and community support\n- **Cross-Platform Development** → React Native for mobile apps\n- **SEO-Friendly** → Server-side rendering capabilities (Next.js)",
       "category": "React Basics",
       "difficulty": 2
     },
     {
-      "id": 10,
+      "id": 100010,
       "question": "What is the role of JSX in React? (3 points)",
       "answer": "\"JSX declares the UI, combines components, and embeds JS logic.\"\n\n- **Declarative UI** → Describe what the UI should look like, making it **easy to write, read, and maintain**\n- **Component Composition** → Combine components; make them **reusable and maintainable**\n- **JavaScript Integration** → Embed JS logic; make UI **interactive**",
       "category": "JSX",
       "difficulty": 2
     },
     {
-      "id": 11,
+      "id": 100011,
       "question": "What is the difference between Declarative & Imperative syntax?",
-      "answer": "*Declarative: **what to do***\n*Imperative: **how to do***\n\n*JSX, Component, and Unidirectional Data Flow declare **what the UI should be**; Virtual DOM and Hooks are **technical mechanisms that make this declarative approach efficient***",
-      "category": "Programming Concepts",
-      "difficulty": 2
+      "answer": "*Declarative: **what to do**, Imperative: **how to do**.*\n\n*JSX, Component, and Unidirectional Data Flow declare **what the UI should be**; Virtual DOM and Hooks are **technical mechanisms that make this declarative approach efficient**.*\n\n- **JSX** → Declare the UI inside a single component\n- **Component-based** → Declare how components are composed\n- **Unidirectional Data Flow** → Declare how state affects the UI\n- **Virtual DOM + Hooks** → Technical mechanisms that efficiently support these declarative rules\n\n比如一个计数器，我只需要描述当 count 为某个值时 UI 应该显示什么，而不需要手动操作 DOM 元素。",
+      "category": "JSX",
+      "difficulty": 3
     },
     {
-      "id": 12,
+      "id": 100012,
       "question": "What is Arrow Function Expression in JSX?",
-      "answer": "- **Concise syntax** for inline functions in JSX elements\n- Used in **dynamic rendering** (map), **conditional rendering**, and **array operations** (filter, map)\n- Useful for **event handling** (onClick, onChange) and **async callbacks** (setTimeout, fetch)\n- **Class components** → Used to **preserve this context** without manually binding methods\n\n**Examples:**\n- **Event handlers** → onClick={() => handleClick()}\n- **Array rendering** → {items.map(item => <Item key={item.id} />)}\n- **Conditional rendering** → {isVisible && (() => <Component />)()}\n- **Inline calculations** → {users.filter(u => u.active).length}",
+      "answer": "- **Concise syntax** for inline functions in JSX elements\n- Used in **dynamic rendering** (map), **conditional rendering**, and **array operations** (filter, map).\n- Useful for **event handling** (onClick, onChange) and **async callbacks** (setTimeout, fetch).\n- **Class components** → Used to **preserve this context** without manually binding methods\n\n**Event handlers** → onClick={() => handleClick()}\n**Array rendering** → {items.map(item => <Item key={item.id} />)}\n**Conditional rendering** → {isVisible && (() => <Component />)()}\n**Inline calculations** → {users.filter(u => u.active).length}",
       "category": "JSX",
       "difficulty": 2
     },
     {
-      "id": 13,
+      "id": 100013,
       "question": "How React App Load and display the components in browser?",
-      "answer": "\"React apps load in a few simple steps: the browser downloads the HTML and JS bundle, React mounts the root component using createRoot, builds a Virtual DOM and renders it to the real DOM, and later updates only the parts that change using the diff algorithm.\"\n\n**Download → Mount → Render → Update**\n\n- Download: HTML + JS\n- Mount: createRoot --- <div id=\"root\"></div>\n- Render: Virtual DOM → Real DOM\n- Update: diff algorithm",
-      "category": "React Core",
+      "answer": "\"React apps load in a few simple steps: the browser downloads the HTML and JS bundle, React mounts the root component using createRoot, builds a Virtual DOM and renders it to the real DOM, and later updates only the parts that change using the diff algorithm.\"\n\n**Download → Mount → Render → Update**\n\n*第一次 Mount 一定会调用 render*\n\n- Download: HTML + JS\n- Mount: createRoot--- <div id=\"root\"></div>\n- Render: Virtual DOM → Real DOM\n- Update: diff algorithm.",
+      "category": "React Basics",
       "difficulty": 2
     },
     {
-      "id": 14,
+      "id": 100014,
       "question": "React Performance Essentials (3 points)",
-      "answer": "- **Virtual DOM Diff** -- only updates changed parts\n- **Batching Updates** -- React merges multiple state updates\n- **Code Splitting / Lazy Loading** -- load code on demand, reduce initial bundle\n\n**React 17：**事件(比如onClick)里批量，异步(setTimeout / Promise / 原生事件)里不批量\n**React 18：**任何地方都自动批量\n\n**实现原理：**setState → 入队 → 调度器（event loop 结束时）→ 统一 diff → 一次性 DOM 更新",
+      "answer": "- **Virtual DOM Diff** -- only updates changed parts.\n- **Batching Updates** -- React merges multiple state updates.\n- **Code Splitting / Lazy Loading** -- load code on demand, reduce initial bundle.\n\nReact 17：事件(比如onClick)里批量，异步(setTimeout / Promise / 原生事件)里不批量。\nReact 18：任何地方都自动批量。\n实现原理：setState → 入队 → 调度器（event loop 结束时）→ 统一 diff → 一次性 DOM 更新。\n\nconst LazyBigChart = React.lazy(() => import('./BigChart'));\n**通过 dynamic import 触发 Code Splitting 在运行时按需加载 → Lazy Loading**",
       "category": "Performance",
       "difficulty": 3
     },
     {
-      "id": 15,
+      "id": 100015,
       "question": "Why is the Virtual DOM fast?",
-      "answer": "**简洁版：**Because it reduces direct DOM operations by working with Virtual DOM.\n\n**深入解释：**React updates a Virtual DOM first, then applies only the minimal real DOM changes.",
-      "category": "React Core",
+      "answer": "简洁版：Because it reduces direct DOM operations by working with Virtual DOM.\n\n深入解释：React updates a Virtual DOM first, then applies only the minimal real DOM changes.",
+      "category": "Virtual DOM",
       "difficulty": 2
     },
     {
-      "id": 16,
+      "id": 100016,
       "question": "Difference between initial render and re-render?",
-      "answer": "**简洁版：**Initial render creates DOM, re-render updates only changed parts.\n\n**深入解释：**Re-render uses diffing to minimize changes.",
-      "category": "React Core",
+      "answer": "简洁版：Initial render creates DOM, re-render updates only changed parts.\n\n深入解释：Re-render uses diffing to minimize changes.",
+      "category": "Rendering",
       "difficulty": 2
     },
     {
-      "id": 17,
+      "id": 100017,
       "question": "What's new in React 18?",
-      "answer": "**简洁版：**Concurrent rendering, auto batching, improved Suspense.\n\n**深入解释：**They make apps smoother and faster.\n\n- *Concurrent Rendering = controls when to render*\n- *Automatic Batching = controls how updates are combined*\n- *Improved Suspense = handles async smoothly*",
+      "answer": "简洁版：Concurrent rendering, auto batching, improved Suspense.\n\n深入解释：They make apps smoother and faster.\n\n- *Concurrent Rendering = controls when to render*\n- *Automatic Batching = controls how updates are combined*\n- *Improved Suspense = handles async smoothly*",
       "category": "React 18",
       "difficulty": 3
     },
     {
-      "id": 18,
+      "id": 100018,
       "question": "What is Automatic Batching in React 18?",
       "answer": "- **What:** Combines multiple setState calls into **one render**\n- **Where:** Works in **all code**, including async (setTimeout, Promise)\n- **Why:** Reduces unnecessary DOM updates, improves performance",
       "category": "React 18",
-      "difficulty": 3
+      "difficulty": 2
     },
     {
-      "id": 19,
+      "id": 100019,
       "question": "React 18 Concurrent Mode/Scheduler",
-      "answer": "- **What:** React decides the **best time to render** updates\n- **Why:** Keeps UI responsive, handles large updates efficiently\n\n**Concurrent Mode** = 开启 React 并发特性的模式（开关）。通过createRoot\n**Concurrent Rendering** = React 在该模式下的具体行为和能力（渲染策略）。",
+      "answer": "- **What:** React decides the **best time to render** updates\n- **Why:** Keeps UI responsive, handles large updates efficiently\n\n- **Concurrent Mode** = 开启 React 并发特性的模式（开关）。通过createRoot\n- **Concurrent Rendering** = React 在该模式下的具体行为和能力（渲染策略）。",
       "category": "React 18",
       "difficulty": 3
     },
     {
-      "id": 20,
+      "id": 100020,
+      "question": "Concurrent Rendering",
+      "answer": "**React 17**: synchronous → blocks main thread → UI freezes.\n\n**React 18** concurrent rendering = interruptible + prioritized → smooth UI under **heavy updates, async data, and large lists**.\n\n**Large lists**\n- **Chunked rendering** → render in small batches\n- **Scroll/click remain smooth** while remaining items render\n\n**Async components / Suspense**\n- **Async components → Load component/data asynchronously**\n- **Suspense → Show fallback UI while async component loads**\n- **Partial fallback** → show loading only in Suspense region\n- **Other UI interactive** while async component loads\n\n**Multiple state updates**\n- **High-priority updates first** (e.g., user input)\n- **Low-priority updates wait** → slow updates don't block interaction\n\nReact 给不同更新**优先级**\n- 高优先级：用户输入（click, keypress）\n- 中优先级：普通 state 更新\n- 低优先级：大列表渲染、后台数据加载\n\nScheduler 会按优先级调度渲染，让高优先级 UI 先更新，低优先级可以被中断或延迟",
+      "category": "React 18",
+      "difficulty": 4
+    },
+    {
+      "id": 100021,
       "question": "How React provides Reusability and Composition?",
-      "answer": "*Reusability → write once, use many times*\n*Composition → build complex UI from simple parts*\n\n**Reusability (可复用性)**\n- **Components** → modular, reusable UI blocks\n- **Custom Hooks** → reusable logic across components\n\n**Composition (组合性)**\n- Children Props Pattern → Pass components or render functions to components\n- Component Composition → Combine smaller components into complex UIs\n- Higher-Order Components (HOC) → Wrap components to add reusable behavior",
-      "category": "React Patterns",
+      "answer": "*Reusability → write once, use many times*\n*Composition → build complex UI from simple parts*\n*children props、render props、Component Composition组件嵌套、HOC*\n\n**Reusability (可复用性)**\n- **Components** → modular, reusable UI blocks\n- **Custom Hooks** → reusable logic across components\n\n**Composition (组合性)**\n- Children Props Pattern → Pass components or render functions to components\n- Component Composition → Combine smaller components into complex UIs\n- Higher-Order Components (HOC) → Wrap components to add reusable behavior",
+      "category": "Components",
       "difficulty": 3
     },
     {
-      "id": 21,
+      "id": 100022,
       "question": "React Hooks 的规则",
-      "answer": "\"Functions only, Top level only, Dependencies accurate\"\n\n- **Call Only in Functional Components or Hooks**\n  Use inside **function components** or **other hooks**\n  Don't use in **classes** or **regular functions**\n\n- **Call at the Top Level**\n  Always at the **top of the function**\n  Don't call inside **if, for, while, switch**\n  Keeps **hook call order consistent**\n\n- **Keep Dependencies Accurate**\n  Include **all external variables** used inside useEffect, useCallback, useMemo\n  Helps avoid **stale closures** or **bugs**",
+      "answer": "*\"Functions only, Top level only, Dependencies accurate\"*\n\n- **Call Only in Functional Components or Hooks**\nUse inside **function components** or **other hooks**\nDon't use in **classes** or **regular functions**\n\n- **Call at the Top Level**\nAlways at the **top of the function**\nDon't call inside **if, for, while, switch**\nKeeps **hook call order consistent**\n\n- **Keep Dependencies Accurate**\nInclude **all external variables** used inside useEffect, useCallback, useMemo\nHelps avoid **stale closures** or **bugs**",
       "category": "Hooks",
       "difficulty": 3
     },
     {
-      "id": 22,
+      "id": 100023,
       "question": "What are Custom Hooks?",
       "answer": "*Custom Hooks are a mechanism to reuse stateful logic between components.*",
       "category": "Hooks",
-      "difficulty": 3
+      "difficulty": 2
     },
     {
-      "id": 23,
+      "id": 100024,
       "question": "Custom Hooks 的规则",
       "answer": "- **Func** → Hooks only in **function components or other hooks**\n- **Top** → Hooks must be at **top level**, not in if/for/while/switch\n- **Dep** → **Dependencies accurate** in useEffect, useCallback, useMemo\n- **Use prefix** → Custom Hook must **start with** use\n- **Single job** → Custom Hook should **do only one thing**, encapsulate logic",
       "category": "Hooks",
       "difficulty": 3
     },
     {
-      "id": 24,
+      "id": 100025,
       "question": "Component Composition",
-      "answer": "- **Combine small components** → Build complex UIs from small, focused components\n- **Flexible children** → Use children prop to insert any JSX\n- **Function props** / **Render props** → Pass functions(returns JSX) to control how content is rendered\n- **Benefits** → Single responsibility, reusable, readable",
-      "category": "React Patterns",
+      "answer": "- **Combine small components** → Build complex UIs from small, focused components.\n- **Flexible children** → Use children prop to insert any JSX.\n- **Function props** / **Render props** → Pass functions(returns JSX) to control how content is rendered.\n- **Benefits** → Single responsibility, reusable, readable.",
+      "category": "Components",
       "difficulty": 3
     },
     {
-      "id": 25,
+      "id": 100026,
       "question": "Composition vs Inheritance",
-      "answer": "\"React recommends composition over inheritance\" - 直接点出了官方立场\n\"More flexible than inheritance\" - 核心优势\n\"Combine smaller components instead of extending\" - 具体做法\n\"Without tightly coupling\" - 关键好处\n\"Improves reuse and maintainability\" - 实际价值",
-      "category": "React Patterns",
+      "answer": "- \"React recommends composition over inheritance\" - 直接点出了官方立场\n- \"More flexible than inheritance\" - 核心优势\n- \"Combine smaller components instead of extending\" - 具体做法\n- \"Without tightly coupling\" - 关键好处\n- \"Improves reuse and maintainability\" - 实际价值",
+      "category": "Components",
       "difficulty": 3
     },
     {
-      "id": 26,
-      "question": "What are State, Stateless, Stateful and State Management terms?",
-      "answer": "**State** → data that changes & triggers re-render\n**Stateless** → no state, just props → renders UI\n**Stateful** → holds own state & logic, can update itself\n**State Management** → organize & share state across components\n\n**State**\n- Represents **data that can change** over time in a component\n- Stored in **component memory** (useState in function components, this.state in class components)\n- Changes in state **trigger UI re-render**\n\n**Stateless (Functional / Presentational Component)**\n- A component that **does not hold its own state**\n- Receives data and callbacks via **props**\n- Purely **renders UI based on props**\n\n**Stateful (Container / Smart Component)**\n- A component that **maintains its own state**\n- Handles **logic and state changes** internally\n- Can pass state or callbacks to **child components**\n\n**State Management**\n- The practice of **organizing and controlling state across components**\n- Helps **share state**, **avoid prop drilling**, and **maintain consistency**\n- Examples: **React Context, Redux, MobX, Zustand**",
-      "category": "State Management",
-      "difficulty": 2
+      "id": 100027,
+      "question": "Advantages and Disadvantages of Render Props",
+      "answer": "**Advantages:**\nAllows **dynamic control** over rendering.\nMakes components **flexible and reusable**.\n\n**Disadvantages:**\nCan cause **nested wrapper hell** if overused.\nMay reduce **code readability**.",
+      "category": "Components",
+      "difficulty": 3
     },
     {
-      "id": 27,
+      "id": 100028,
+      "question": "How to Choose a Composition Pattern",
+      "answer": "- Choose based on **reusability needs** and **UI complexity**.\n- **Simple** reusable pieces: use children prop.\n- **Dynamic rendering** or more control: use render props or higher-order components.",
+      "category": "Components",
+      "difficulty": 3
+    },
+    {
+      "id": 100029,
+      "question": "What are State, Stateless, Stateful and State Management terms?",
+      "answer": "**State** → data that changes & triggers re-render\n**Stateless** → no state, just props → renders UI\n**Stateful** → holds own state & logic, can update itself\n**State Management** → organize & share state across components\n\n**State**\n- Represents **data that can change** over time in a component.\n- Stored in **component memory** (useState in function components, this.state in class components).\n- Changes in state **trigger UI re-render**.\n\n**Stateless (Functional / Presentational Component)**\n- A component that **does not hold its own state**.\n- Receives data and callbacks via **props**.\n- Purely **renders UI based on props**.\n\n**Stateful (Container / Smart Component)**\n- A component that **maintains its own state**.\n- Handles **logic and state changes** internally.\n- Can pass state or callbacks to **child components**.\n\n**State Management**\n- The practice of **organizing and controlling state across components**.\n- Helps **share state**, **avoid prop drilling**, and **maintain consistency**.\n- Examples: **React Context, Redux, MobX, Zustand**.",
+      "category": "State Management",
+      "difficulty": 3
+    },
+    {
+      "id": 100030,
       "question": "What are Props in JSX?",
       "answer": "- **Read-only inputs** → 子组件不能修改 props\n- **From parent** → 父组件传给子组件\n- **Customize child component** → 控制显示或行为\n- **Reusable & configurable** → 组件可复用，可配置",
       "category": "Props",
-      "difficulty": 2
+      "difficulty": 1
     },
     {
-      "id": 28,
+      "id": 100031,
       "question": "What is the role of public folder in React?",
       "answer": "- **Static files served as-is原样** → 不经过 Webpack 打包\n- **index.html is app entry** → React 入口文件\n- **Assets via absolute paths** → 图片、favicon 等可以直接访问",
       "category": "Project Structure",
       "difficulty": 1
     },
     {
-      "id": 29,
+      "id": 100032,
       "question": "What is the role of src folder in React?",
       "answer": "1. **React source code** → 所有源代码\n2. **Components & styles** → 组件、CSS/SCSS 等\n3. **Processed by Webpack** → 会被打包、优化\n4. **index.js is entry** → 应用入口文件",
       "category": "Project Structure",
       "difficulty": 1
     },
     {
-      "id": 30,
+      "id": 100033,
       "question": "What is the role of index.html page in React?",
-      "answer": "- index.html is the **single HTML-level entry point** of a React app\n- Provides a **<div>** (usually id=\"root\") as the mounting point for React components\n- Loads the bundled JavaScript that renders the app dynamically\n- Holds **static content** like meta tags, favicon, and SEO info",
+      "answer": "- index.html is the **single HTML-level entry point** of a React app.\n- Provides a <**div**> (usually id=\"root\") as the mounting point for React components.\n- Loads the bundled JavaScript that renders the app dynamically.\n- Holds **static content** like meta tags, favicon, and SEO info.",
       "category": "Project Structure",
-      "difficulty": 2
+      "difficulty": 1
     },
     {
-      "id": 31,
+      "id": 100034,
       "question": "What is the role of index.js file and ReactDOM in React?",
-      "answer": "Key distinction: **index.js handles app setup**, **ReactDOM handles actual DOM rendering**.\n\n**index.html = static shell + root div**\n**index.js = setup + mount**\n**ReactDOM = render only**\n\n**index.js:**\n- **JS-level entry point** of the React app\n- **Mounts** the root React component to the DOM\n- Often sets up **app-wide configurations** (optional): Providers, global state (e.g., Redux), routing (e.g., BrowserRouter)\n\n**ReactDOM:**\n- Provides **DOM-specific methods** for React\n- Main methods: ReactDOM.render() or ReactDOM.createRoot().render()\n- Responsible only for **rendering React elements** into the DOM",
+      "answer": "Key distinction: **index.js handles app setup**, **ReactDOM handles actual DOM rendering**.\n\n**index.html = static shell + root div**\n**index.js = setup + mount**\n**ReactDOM = render only**\n\n**index.js:**\n- **JS-level entry point** of the React app.\n- **Mounts** the root React component to the DOM.\n- Often sets up **app-wide configurations** (optional):\n  - Providers, global state (e.g., Redux), routing (e.g., BrowserRouter).\n\n**ReactDOM:**\n- Provides **DOM-specific methods** for React.\n- Main methods: ReactDOM.render() or ReactDOM.createRoot().render().\n- Responsible only for **rendering React elements** into the DOM.",
       "category": "Project Structure",
       "difficulty": 2
     },
     {
-      "id": 32,
+      "id": 100035,
       "question": "What is the role of App.js file in React?",
       "answer": "- **Render Child Components** -- 引入并渲染页面、功能模块或 UI 组件\n- **Routing Setup** -- 常见设置路由（react-router-dom）\n- **State Management** -- 局部状态 (useState/useEffect) 或集成全局状态 (Redux)\n- **Styling & Layout** -- 全局布局和样式，定义页面主要结构\n- **Error Boundaries** -- 捕获子组件错误，防止应用崩溃",
       "category": "Project Structure",
       "difficulty": 2
     },
     {
-      "id": 33,
+      "id": 100036,
       "question": "What is the role of function and return inside App.js?",
-      "answer": "*The function contains the logic of the component, and the return defines its UI.*\n\n**Function**\n- Defines the component (App) as a JavaScript function\n- Handles logic: state (useState), side effects (useEffect), event handlers, etc.\n\n**Return**\n- Must return **JSX-** describes what UI should look like\n- Must return a single parent element\n- Can include **child components**, **HTML-like structure**, **conditional rendering, dynamic data, dynamic lists**, etc.",
+      "answer": "*The function contains the logic of the component, and the return defines its UI.*\n\n**Function**\n- Defines the component (App) as a JavaScript function.\n- Handles logic: state (useState), side effects (useEffect), event handlers, etc.\n\n**Return**\n- Must return **JSX** -- describes what UI should look like.\n- Must return a single parent element.\n- Can include **child components**, **HTML-like structure**, **conditional rendering, dynamic data, dynamic lists** , etc.\n\n条件渲染 {isLoggedIn ? <Welcome /> : <Login />}\n动态数据展示 function UserProfile({ name, age }) { return <p>{name} is {age} years old.</p>; }\n动态列表 {items.map((item, index) => <li key={index}>{item}</li>)}\n动态样式 <div className={isActive ? 'active' : 'inactive'}>Content</div>;\n动态属性 <button disabled={isDisabled}>Submit</button>;",
       "category": "Components",
       "difficulty": 2
     },
     {
-      "id": 34,
+      "id": 100037,
       "question": "Can we have a function without a return inside App.js?",
       "answer": "**Component = must return JSX** **(or null)**\n**Helper = can do anything, no JSX required**\n\n- **Logging to console**\n- **Updating state** (using useState, without returning JSX)\n- **Triggering side effects** (like alert() or timers)\n- **Making API calls**",
       "category": "Components",
       "difficulty": 2
     },
     {
-      "id": 35,
+      "id": 100038,
       "question": "What is the role of export default inside App.js?",
       "answer": "*export default allows the component to be imported easily in other files.*\n\n*Default export = easy import, one per file*\n*Component is reusable across the app*",
-      "category": "Components",
+      "category": "ES6",
       "difficulty": 1
     },
     {
-      "id": 36,
+      "id": 100039,
       "question": "Does the file name and the component name must be same in React?",
       "answer": "do not **have to** be the same in React, but it is considered a **best practice** to keep them consistent.",
-      "category": "Components",
+      "category": "Best Practices",
       "difficulty": 1
     },
     {
-      "id": 37,
+      "id": 100040,
       "question": "What is the role of JSX in React? (3 points)",
       "answer": "*JSX allows you to write HTML-like syntax inside JavaScript to describe the UI.*\n\n- JSX = **JavaScript XML**\n- Lets you **define React elements in a syntax similar to HTML**\n- Can include **dynamic content** using {} (e.g., variables, expressions)\n- Makes code **readable and declarative**\n- Under the hood, JSX is **transpiled to React.createElement()**\n- 不能写：if / else / for / while / switch / try...catch/var/let/const 声明",
       "category": "JSX",
       "difficulty": 2
     },
     {
-      "id": 38,
+      "id": 100041,
       "question": "What are the 5 Advantages of JSX?",
-      "answer": "\"Readable, Dynamic, Safe, IDE-friendly, React-ready\" → RDSIR\n\n- **Declarative & Readable --** UI looks like HTML, easy to understand\n- **Dynamic --** Can use {} for variables, loops, conditions\n- **Safe --** Compile-time checks reduce runtime errors\n- **IDE-friendly --** Syntax highlighting, autocompletion, linting\n- **React-ready --** Translates to React.createElement() automatically",
+      "answer": "*\"Readable, Dynamic, Safe, IDE-friendly, React-ready\" → RDSIR*\n\n- **Declarative & Readable --** UI looks like HTML, easy to understand\n- **Dynamic --** Can use {} for variables, loops, conditions\n- **Safe --** Compile-time checks reduce runtime errors\n- **IDE-friendly --** Syntax highlighting, autocompletion, linting\n- **React-ready --** Translates to React.createElement() automatically",
       "category": "JSX",
       "difficulty": 2
     },
     {
-      "id": 39,
+      "id": 100042,
       "question": "What is Babel?",
-      "answer": "*Babel is a popular open-source JavaScript compiler and transpiler.*\n\n*Babel is the **bridge between JSX(declarative UI) and JavaScript logic**, making React components easier to write and read*\n\n- **Transpilation** -- Converts modern JS (ES6+) to older JS (ES5) for browser compatibility\n- **Polyfills** -- Adds missing features for older browsers (via core-js/@babel/polyfill)\n- **JSX transformation** -- Converts JSX into React.createElement() calls\n\n**Compilation：** C, C++, or Java into machine code or bytecode\n**Transpilation：** converting source code from one programming language to another",
+      "answer": "*Babel is a popular open-source JavaScript compiler and transpiler..*\n\n*Babel is the **bridge between JSX(declarative UI) and JavaScript logic**, making React components easier to write and read*\n\n- **Transpilation** -- Converts modern JS (ES6+) to older JS (ES5) for browser compatibility\n- **Polyfills** -- Adds missing features for older browsers (via core-js/@babel/polyfill)\n- **JSX transformation** -- Converts JSX into React.createElement() calls\n\n**Compilation**： C, C++, or Java into machine code or bytecode\n**Transpilation：** converting source code from one programming language to another",
       "category": "Build Tools",
       "difficulty": 2
     },
     {
-      "id": 40,
+      "id": 100043,
       "question": "What is the role of Fragment in JSX?",
       "answer": "*Fragment = invisible wrapper for multiple elements, better performance & cleaner JSX*\n\n- **Invisible wrapper** for multiple elements\n- **React.Fragment or shorthand (<>...</>)**\n- **Avoids extra DOM nodes** → keeps JSX cleaner and easier to maintain",
       "category": "JSX",
       "difficulty": 2
     },
     {
-      "id": 41,
+      "id": 100044,
       "question": "What is Spread Operator in JSX?",
-      "answer": "*...object → spreads object properties as props, enables multiple props, merging, forwarding, and cloning efficiently*\n\n- **Props Spreading** → spreads all object properties into a component\n- **Props Merging** → combines object props with extra props\n- **Props Forwarding** → passes props to child unchanged\n- **Props Cloning** → copies props and optionally changes some\n\n**Examples:**\n- **Passing Multiple Props Efficiently**: const props = { name: 'John', age: 25, job: 'Developer' }; <Profile {...props} />\n- **Merging Props**: const props = { name: 'John', age: 25 }; <Profile {...props} job=\"Developer\" />\n- **Props Forwarding**: function WrapperComponent(props) { return <ChildComponent {...props} />; }\n- **Cloning Props**: const clonedButton = <Button {...originalButtonProps} color=\"blue\" />;",
+      "answer": "*...object → spreads object properties as props, enables multiple props, merging, forwarding, and cloning efficiently*\n\n- **Props Spreading** → spreads all object properties into a component\n- **Props Merging** → combines object props with extra props\n- **Props Forwarding** → passes props to child unchanged\n- **Props Cloning** → copies props and optionally changes some\n\n- **Passing Multiple Props Efficiently(**Avoid Repetitive Code**)**: const props = { name: 'John', age: 25, job: 'Developer' }; <Profile {...props} />\n- **Merging(Combining) Props:** const props = { name: 'John', age: 25 }; <Profile {...props} job=\"Developer\" />\n- **Props Forwarding:** function WrapperComponent(props) { return <ChildComponent {...props} />; }\n- **Cloning Props:** **const clonedButton = <Button {...originalButtonProps} color=\"blue\" />;**",
       "category": "JSX",
       "difficulty": 2
     },
     {
-      "id": 42,
+      "id": 100045,
       "question": "What are the types of Conditional Rendering in JSX?",
-      "answer": "\"Ternary ?:, Logical &&\"\n\n- **Ternary ?** → 简洁 inline 条件\n- **Logical &&** → 条件为 true 时渲染，可选显示",
+      "answer": "*\"Ternary ?:, Logical &&\"*\n\n- **Ternary ?** → 简洁 inline 条件\n- **Logical &&** → 条件为 true 时渲染，可选显示",
       "category": "JSX",
       "difficulty": 2
     },
     {
-      "id": 43,
+      "id": 100046,
       "question": "How do you iterate over a list in JSX? What is map() method?",
       "answer": "- map() → iterate + return JSX\n- Key → unique for each item\n- Avoid index as key",
       "category": "JSX",
       "difficulty": 2
     },
     {
-      "id": 44,
+      "id": 100047,
       "question": "React Large List Performance -- Quick Memory",
-      "answer": "\"Windowing/Virtualization, Lazy/Infinite Scroll, Pagination, Memoization, Web Workers\"\n\n**Data layer (reduce data fetched) 数据层面（减少数据量）:**\n- **Pagination** → load page by page\n- **Lazy Loading / Infinite Scroll** → load more on scroll\n\n**Render layer (reduce DOM) 渲染层面（减少DOM）:**\n- **Windowing/Virtualization** → render only visible items (react-window, react-virtualized)\n- **Memoization** → skip re-renders for unchanged items(React.memo, useMemo, useCallback)\n\n**Compute layer (reduce main thread load) 计算层面（不阻塞UI）:**\n- **Web Workers** → offload heavy sorting/filtering\n\n**React 18 Boosters:** Concurrent Rendering, Async Suspense, Automatic Batching\n\n**By Size:**\n- **Small (<100):** Memoization\n- **Medium (100-1000):** Pagination / Lazy Scroll\n- **Large (1000+):** Windowing + Memoization\n- **Huge / heavy CPU:** Windowing + Web Workers",
+      "answer": "**\"Windowing/Virtualization, Lazy/Infinite Scroll, Pagination, Memoization, Web Workers\"**\n\n- **Data layer (reduce data fetched)** **数据层面（减少数据量）:**\n**Pagination** → load page by page\n**Lazy Loading / Infinite Scroll** → load more on scroll\n\n- **Render layer (reduce DOM)** **渲染层面（减少DOM）:**\n**Windowing/Virtualization** → render only visible items (react-window, react-virtualized)\n**Memoization** → skip re-renders for unchanged items(React.memo, useMemo, useCallback)\n\n- **Compute layer (reduce main thread load)** **计算层面（不阻塞UI）:**\n**Web Workers** → offload heavy sorting/filtering\n\n- **React 18 Boosters:** Concurrent Rendering, Async Suspense, Automatic Batching\n\n当前页面需要渲染 / 管理的列表项数量（前端角度）\n- **Small (<100):** Memoization\n- **Medium (100-1000):** Pagination / Lazy Scroll\n- **Large (1000+):** Windowing + Memoization\n- **Huge / heavy CPU:** Windowing + Web Workers\n\n**Tip:** Combine scroll + windowing for smooth render; use Web Workers for heavy calculations.\n\n- **Lazy Loading** = 只在需要时才请求数据（包括点击按钮、滚动触发等多种方式）。\n- **Infinite Scroll** = 一种 Lazy Loading 实现方式，触发条件是\"滚动到底部\"。",
       "category": "Performance",
-      "difficulty": 3
+      "difficulty": 4
     },
     {
-      "id": 45,
+      "id": 100048,
       "question": "Can a browser read a JSX File?",
       "answer": "No, a browser cannot directly read a JSX file. so it must be **transpiled** into JavaScript using tools like Babel.",
-      "category": "Build Tools",
-      "difficulty": 2
-    },
-    {
-      "id": 46,
-      "question": "What is Transpiler? What is the difference between Compiler & Transpiler?",
-      "answer": "**Transpiler** = *source-to-source compiler*\n\n- Converts code from one **high-level language** to another **high-level language**\n- Example: **Babel** converts ES6+ → ES5\n\n**Compiler** = *high-level → low-level*\n\n- Converts code from **high-level language** → **machine code / bytecode**\n- Example: C → Assembly / Java → JVM bytecode\n\n*Compiler → machine-ready*\n*Transpiler → language-ready / compatible with older version*",
-      "category": "Build Tools",
-      "difficulty": 2
-    },
-    {
-      "id": 47,
-      "question": "Is it possible to use JSX without React?",
-      "answer": "Yes, it is possible to use JSX without React.",
       "category": "JSX",
-      "difficulty": 2
-    },
-    {
-      "id": 48,
-      "question": "What are the Types of React components?",
-      "answer": "**Functional Components**: Components defined as **functions** that return JSX.\n**Class Components**: Components defined as **ES6 classes** extending React.Component\n\n**Functional = Function + Hooks**\n**Class = Class + Lifecycle**\n\n\"React components are either functional (functions + hooks, preferred) or class (ES6 class + state/lifecycle).\"",
-      "category": "Components",
-      "difficulty": 2
+      "difficulty": 1
     },
     {
       "id": 49,
@@ -344,24 +351,669 @@
       "difficulty": 2
     },
     {
-      "id": 50,
-      "question": "What is Prop Drilling in React?",
-      "answer": "- **What:** Passing props through many layers to reach a child\n- **Problem:** Intermediate components just pass props → messy code\n- **Example:** Parent → Child A → Child B → Child C (needs the prop)\n- **Fix:** Use **Context API** or **state management** (Redux, Zustand, etc.)\n- **Tip:** Fine for small trees; avoid for large/deep trees",
-      "category": "Props",
+      "id": 100050,
+      "question": "Can a browser read a JSX File?",
+      "answer": "No, a browser cannot directly read a JSX file.\n\nso it must be transpiled into JavaScript using tools like Babel.",
+      "category": "JSX",
+      "difficulty": 1
+    },
+    {
+      "id": 100051,
+      "question": "What is Transpiler? What is the difference between Compiler & Transpiler?",
+      "answer": "Transpiler = source-to-source compiler\n\n- Converts code from one high-level language to another high-level language\n- Example: Babel converts ES6+ → ES5\n\nCompiler = high-level → low-level\n\n- Converts code from high-level language → machine code / bytecode\n- Example: C → Assembly / Java → JVM bytecode\n\nKey Differences:\n- Compiler → machine-ready\n- Transpiler → language-ready / compatible with older version",
+      "category": "Build Tools",
       "difficulty": 2
     },
     {
-      "id": 51,
+      "id": 100052,
+      "question": "Is it possible to use JSX without React?",
+      "answer": "Yes, it is possible to use JSX without React.",
+      "category": "JSX",
+      "difficulty": 1
+    },
+    {
+      "id": 100053,
+      "question": "What are React Components? What are the main elements of it?",
+      "answer": "Reusable building blocks in React that define UI and behavior.\n\nPurpose: Break UI into small, manageable pieces.\n\nMain Elements of a React Component:\n\n- Props -- read-only inputs from parent, used to customize component\n- State -- internal, mutable data that drives rendering\n- Lifecycle / Hooks -- logic tied to component creation, update, or cleanup\n  - Class components: componentDidMount, componentDidUpdate, etc.\n  - Function components: useEffect, useLayoutEffect\n- Render / JSX -- returns UI elements to display",
+      "category": "Components",
+      "difficulty": 2
+    },
+    {
+      "id": 100054,
+      "question": "What are the Types of React components? What are Functional Components?",
+      "answer": "Functional Components: Components defined as functions that return JSX.\n\nClass Components: Components defined as ES6 classes extending React.Component\n\nFunctional = Function + Hooks\nClass = Class + Lifecycle\n\n\"React components are either functional (functions + hooks, preferred) or class (ES6 class + state/lifecycle).\"",
+      "category": "Components",
+      "difficulty": 2
+    },
+    {
+      "id": 100055,
+      "question": "How do you pass data between functional components in React?",
+      "answer": "Props → Callback → Lift State → Context/Redux\n\nParent → Child\n- Pass data via props\n\nChild → Parent\n- Pass a callback function as a prop\n\nSibling → Sibling\n- Lift state to common parent, share via props\n\nDeep / Global Communication\n- Use Context API or state management (Redux, Zustand)\n- Avoid prop drilling",
+      "category": "Components",
+      "difficulty": 2
+    },
+    {
+      "id": 100056,
+      "question": "What is Prop Drilling in React?",
+      "answer": "- What: Passing props through many layers to reach a child\n- Problem: Intermediate components just pass props → messy code\n- Example: Parent → Child A → Child B → Child C (needs the prop)\n- Fix: Use Context API or state management (Redux, Zustand, etc.)\n- Tip: Fine for small trees; avoid for large/deep trees",
+      "category": "Components",
+      "difficulty": 2
+    },
+    {
+      "id": 100057,
       "question": "Why to Avoid Prop Drilling? In how many ways can avoid Prop Drilling?",
-      "answer": "Avoid prop drilling because it makes code messy, hard to maintain, hard to refactor, and reduces readability.\n\n**Ways to Avoid Prop Drilling**\n- **Context API** → Provide data globally to any component in the tree\n- **State management libraries** → Redux, Zustand, Recoil, etc.\n- **Component composition / render props** → Pass functions or children selectively\n- **Hooks for shared state** → Custom hooks to share logic without passing props",
-      "category": "Props",
+      "answer": "Avoid prop drilling because it makes code messy, hard to maintain, hard to refactor, and reduces readability.\n\nWays to Avoid Prop Drilling:\n\n- Context API → Provide data globally to any component in the tree\n- State management libraries → Redux, Zustand, Recoil, etc.\n- Component composition / render props → Pass functions or children selectively\n- Hooks for shared state → Custom hooks to share logic without passing props",
+      "category": "Components",
+      "difficulty": 2
+    },
+    {
+      "id": 100058,
+      "question": "What are Class Components In React?",
+      "answer": "- Definition: ES6 classes extending React.Component\n\n- State & Props:\n  - this.state → component's local state\n  - this.props → props passed from parent\n  - Update state with this.setState()\n\n- Lifecycle Methods:\n  - componentDidMount, componentDidUpdate, componentWillUnmount\n\n- Event Handling:\n  - Can handle events; bind methods to class instance using this\n\n- Rendering JSX:\n  - Must implement a render() method",
+      "category": "Components",
+      "difficulty": 2
+    },
+    {
+      "id": 100059,
+      "question": "How to pass data between class components in React?",
+      "answer": "Parent → Child:\n- Use props to pass data from parent to child\n\nChild → Parent:\n- Pass a callback function from parent to child via props\n- Child calls the function to send data back\n\nSibling → Sibling:\n- Lift state up to common parent\n- Parent manages state → passes via props to both children\n\nAlternative / Large apps:\n- Use Context API or state management libraries (Redux, Zustand, Recoil) to avoid deep prop passing",
+      "category": "Components",
+      "difficulty": 2
+    },
+    {
+      "id": 100060,
+      "question": "What is the role of this keyword in class components?",
+      "answer": "- State: this.state 访问，this.setState() 更新\n- Props: this.props 访问父组件传的值\n- Methods: this.methodName 访问，事件处理需绑定 this\n- Lifecycle & Render: this 指向组件实例，可访问 state、props、方法\n\n\"In class components, this refers to the component instance; use it to access state (this.state), props (this.props), methods (this.method), and inside lifecycle/render methods; bind event handlers if needed.\"",
+      "category": "Components",
+      "difficulty": 2
+    },
+    {
+      "id": 100061,
+      "question": "What are the 5 differences between Functional components and Class components?",
+      "answer": "- Syntax: Functional = concise; Class = extends React.Component, needs render()\n- State: Functional = useState hook; Class = this.state + this.setState()\n- Lifecycle: Functional = useEffect; Class = componentDidMount/Update/WillUnmount\n- this: Functional = no binding; Class = need this binding\n- Code Reuse: Functional = custom hooks; Class = HOCs / render props",
+      "category": "Components",
       "difficulty": 3
     },
     {
-      "id": 52,
-      "question": "What are Class Components In React?",
-      "answer": "- **Definition:** ES6 classes extending React.Component\n\n**State & Props:**\n- this.state → component's local state\n- this.props → props passed from parent\n- Update state with this.setState()\n\n**Lifecycle Methods:**\n- componentDidMount, componentDidUpdate, componentWillUnmount\n\n**Event Handling:**\n- Can handle events; bind methods to class instance using this\n\n**Rendering JSX:**\n- Must implement a render() method",
-      "category": "Components",
+      "id": 100062,
+      "question": "What is Routing and Router in React?",
+      "answer": "Routing → Render different components based on URL in a SPA\n\nRouter → Library or component that manages routing (e.g., react-router-dom)\n\nKey components:\n- BrowserRouter → Wraps the app to enable routing\n- Routes → 包裹所有 Route，替代了 v5 的 Switch\n- Route → Maps URL paths to components\n- Link → Creates navigation links to switch pages",
+      "category": "Routing",
       "difficulty": 2
+    },
+    {
+      "id": 100063,
+      "question": "How to Implement Routing in React?",
+      "answer": "- Install react-router-dom library\n- Wrap your app with <BrowserRouter>\n- Define routes using <Routes> and <Route> components\n- Use <Link> or <NavLink> for navigation between routes\n- Render the corresponding component based on the URL path",
+      "category": "Routing",
+      "difficulty": 2
+    },
+    {
+      "id": 100064,
+      "question": "What are the roles of <Routes> & <Route> component in React Routing?",
+      "answer": "<Routes>: Container for all routes; ensures only one route is active at a time (React Router v6+).\n\n<Route>: Defines a single route with:\n- path: URL to match\n- element: Component to render for that path",
+      "category": "Routing",
+      "difficulty": 2
+    },
+    {
+      "id": 100065,
+      "question": "What are Route Parameters in React Routing?",
+      "answer": "- Dynamic parts of URL for passing values\n- Defined with : (e.g., /user/:id)\n- Accessed using useParams()\n- Useful for detail or dynamic pages",
+      "category": "Routing",
+      "difficulty": 2
+    },
+    {
+      "id": 100066,
+      "question": "What is the role of Switch Component in React Routing?",
+      "answer": "- Switch (React Router v5) renders only the first matching <Route>\n- Prevents multiple routes from rendering at the same time\n- Useful for exclusive route matching\n- Replaced by <Routes> in React Router v6",
+      "category": "Routing",
+      "difficulty": 2
+    },
+    {
+      "id": 100067,
+      "question": "What is the role of exact prop in React Routing?",
+      "answer": "- Ensures a <Route> matches the path exactly\n- Without exact, a route with / would also match /about, /contact, etc.\n- Helps prevent unintended route rendering\n- Mainly used in React Router v5; v6 uses exact matching by default",
+      "category": "Routing",
+      "difficulty": 2
+    },
+    {
+      "id": 100068,
+      "question": "What are React Hooks?",
+      "answer": "- Special functions introduced in React 16.8\n- Allow functional components to use state and lifecycle features\n- Replace the need for many class component patterns\n- Examples: useState, useEffect, useContext, useReducer\n- Enable code reuse via custom hooks",
+      "category": "Hooks",
+      "difficulty": 2
+    },
+    {
+      "id": 100069,
+      "question": "What are the Top React Hooks?",
+      "answer": "- useState → manage state in functional components\n- useEffect → side effects & lifecycle replacement\n- useContext → access context values without prop drilling\n- useReducer → advanced state management (like Redux in-component)\n- useCallback → memoize functions to avoid unnecessary re-renders\n- useMemo → memoize values/computations\n- useRef → access DOM nodes or persist mutable values\n- useLayoutEffect → like useEffect but runs synchronously after DOM mutations\n- Custom Hooks → reuse stateful logic across components",
+      "category": "Hooks",
+      "difficulty": 2
+    },
+    {
+      "id": 100070,
+      "question": "What is the role of useState() hook and how it works?",
+      "answer": "Purpose → Adds state to functional components\n\nHow it works → Returns a pair: [state, setState]\n- state → current value\n- setState(newValue) → updates state and triggers re-render\n\nKey points →\n- Each call manages a separate piece of state\n- Works only inside functional components\n- Preserves state across re-renders.",
+      "category": "Hooks",
+      "difficulty": 2
+    },
+    {
+      "id": 100071,
+      "question": "What is the role of useEffect(). How it works and what is its use?",
+      "answer": "- Purpose: Handle side effects in functional components\n- Runs: Accepts a callback function that runs after render, optionally with a dependency array\n- Deps: Optional array to control when it runs\n- Use: Fetch data, subscribe/unsubscribe, timers, DOM updates\n- Cleanup: Return function to clean before unmount or next run(effect 的回调再次执行之前)",
+      "category": "Hooks",
+      "difficulty": 2
+    },
+    {
+      "id": 100072,
+      "question": "What is Dependency Array in useEffect() hook?",
+      "answer": "Definition: Array of values that useEffect depends on\n\nPurpose: Controls when the effect runs\n\nBehavior:\n- Empty array [] → runs once after first render\n- No array → runs after every render\n- With values [a, b] → runs when a or b change",
+      "category": "Hooks",
+      "difficulty": 2
+    },
+    {
+      "id": 100073,
+      "question": "What is the role of useContext() hook?",
+      "answer": "useContext(): access the current value of a context directly within your component.\n\n- Role: Avoids prop drilling by letting components read values directly from the context\n- Usage: Used with a context created by createContext() and provided via a <Provider>\n\nuseContext() 接受一个 context 对象作为参数\n当 context 值发生变化时，使用该 context 的组件会重新渲染\n必须在 Provider 的子组件中使用才能获取到值.",
+      "category": "Hooks",
+      "difficulty": 2
+    },
+    {
+      "id": 100074,
+      "question": "What is createContext() method? What are Provider & Consumer properties?",
+      "answer": "createContext(): Creates a new Context object for sharing data across components.\n\nProvider: Component that holds the shared value and allows child components to access it.\n\nConsumer: Component (or useContext hook) that reads the value from the nearest Provider.\n\ncreateContext() 可以接受默认值作为参数：createContext(defaultValue)\nProvider 通过 value prop 传递数据：<MyContext.Provider value={data}>\nConsumer 有两种使用方式：\n- 传统的 <MyContext.Consumer> 组件（使用 render prop 模式）\n- 现代的 useContext(MyContext) hook（在函数组件中）",
+      "category": "Hooks",
+      "difficulty": 2
+    },
+    {
+      "id": 100075,
+      "question": "When to use useContext() hook instead of props in real applications?",
+      "answer": "Use useContext when you need to share data across many nested components.\n\nAvoid passing props through multiple intermediate components (prop drilling).\n\nCommon examples: theme settings, authentication info, language/locale, global state.",
+      "category": "Hooks",
+      "difficulty": 2
+    },
+    {
+      "id": 100076,
+      "question": "How to use React Context",
+      "answer": "1. Create Context\n   Use createContext() to make a new Context object.\n\n2. Provide Context (Provider)\n   Create a component (e.g., ThemeProvider) to wrap children.\n   Inside, define the state and functions to share.\n   Pass them as the value of <Context.Provider>.\n   Wrap components with a Provider to supply values.\n\n3. Consume Context (useContext)\n   In child components, use useContext() to access values.\n   Can get both data and functions.",
+      "category": "Hooks",
+      "difficulty": 2
+    },
+    {
+      "id": 100077,
+      "question": "如何避免context api的\"无效渲染\"(unnecessary re-renders)",
+      "answer": "- Split context into smaller, focused contexts instead of one big global context.\n- Use React.memo or useMemo to prevent unnecessary re-renders of consuming components.\n- Avoid putting non-static objects/functions directly in the context value; memoize them.\n- Keep context values stable to reduce re-renders.\n- Only wrap components that actually need the context.\n\nuseContext 会在 Provider 的 value 改变时触发消费组件重渲染。\n如果 value 经常变（即使数据没变，引用变了），子组件也会不必要地重渲染 → 性能下降。\n\n优化方法：\n- 使用 useMemo 缓存对象\n- 使用 useCallback 缓存函数\n- 或者把复杂状态拆开，不要把整个对象塞到 context value 里",
+      "category": "Hooks",
+      "difficulty": 3
+    },
+    {
+      "id": 100078,
+      "question": "What are the similarities between useState() and useReducer() hook?",
+      "answer": "- Both are React hooks for state management in functional components.\n- Both allow you to read and update state.\n- Both trigger a re-render of the component when state changes.\n- Both can handle complex state logic, though useReducer is better for very structured or multi-value state.\n- Both can be used with initial state values.",
+      "category": "Hooks",
+      "difficulty": 2
+    },
+    {
+      "id": 100079,
+      "question": "What is useReducer() hook? When to use useState() and when useReducer()?",
+      "answer": "What is useReducer?\n- A React Hook for state management using a reducer: (state, action) => newState\n- Like Redux: dispatch actions to update state\n- Alternative to useState for structured or interdependent state\n\nWhen to use:\n- useState → simple, independent state (string, number, boolean), direct updates\n- useReducer → complex state (objects, arrays), multiple action types, depends on previous state, predictable updates\n\nQuick rule:\nSimple = useState, Complex = useReducer",
+      "category": "Hooks",
+      "difficulty": 2
+    },
+    {
+      "id": 100080,
+      "question": "What are the differences between useState() and useReducer() Hook?",
+      "answer": "State Structure:\n- useState: Single value or simple state.\n- useReducer: Complex state (object/array) or multiple related values.\n\nUpdate Logic:\n- useState: Directly update state with new value.\n- useReducer: Update state via reducer function (state, action) => newState.\n\nAction Handling:\n- useState: No action types, just setState(newValue).\n- useReducer: Use actions ({type, payload}) for structured updates.\n\nPredictability:\n- useState: Simple, easy for small components.\n- useReducer: More predictable for complex state transitions.\n\nReusability:\n- useState: Logic tied to component.\n- useReducer: Reducer function can be reused across components.\n\nSimilarity: Both trigger re-render on state change and are hooks for functional components.",
+      "category": "Hooks",
+      "difficulty": 3
+    },
+    {
+      "id": 100081,
+      "question": "What are dispatch & reducer function in useReducer Hook?",
+      "answer": "reducer handles how the state (count) changes based on the action type.\n\nDispatch: send actions to the reducer, which updates the state.",
+      "category": "Hooks",
+      "difficulty": 2
+    },
+    {
+      "id": 100082,
+      "question": "What is the purpose of passing initial state as an object in UseReducer?",
+      "answer": "Object initial state organizes complex, related state values into a single manageable structure instead of multiple separate state variables.\n\n- Centralized state structure - all related data in one place\n- Atomic updates - ensure consistency when updating multiple values\n- Easier testing - clear state shape\n- Better maintainability - single source of truth for component state",
+      "category": "Hooks",
+      "difficulty": 2
+    },
+    {
+      "id": 100083,
+      "question": "What is the role of useCallback() hook in React?",
+      "answer": "- Memoizes a function so it doesn't get recreated on every render.\n- Works with dependency array to update the function only when needed.\n- Prevents unnecessary re-renders of child components that depend on the function.\n- Useful for performance optimization in large or complex components.",
+      "category": "Hooks",
+      "difficulty": 2
+    },
+    {
+      "id": 100084,
+      "question": "What parameters does the useCallback hook accept & what does it returns?",
+      "answer": "Parameters:\n1. Callback function -- the function you want to memoize.\n2. Dependency array -- list of values that, when changed, will recreate the function.\n\nReturns:\n- A memoized version of the callback function that only changes if dependencies change.",
+      "category": "Hooks",
+      "difficulty": 2
+    },
+    {
+      "id": 100085,
+      "question": "What is the role of useMemo() Hook?",
+      "answer": "- Memoizes a calculation to avoid recomputation on every render.\n- Works with dependency array to recalculate the value only when needed.\n- Prevents expensive computations from running unnecessarily.\n- Optimizes performance by caching results and avoiding redundant work.\n\nUse case: Useful for expensive calculations or derived data that depend on state/props.\n\nWhen to use it: 适用于 组件渲染时需要重复计算但依赖不常变 的情况。\n\nExample context: 处理大列表排序、复杂计算、或者避免子组件不必要渲染。\n\nContrast: 如果是轻量计算，或者依赖频繁变化，使用 useMemo 可能没意义，反而增加复杂性。",
+      "category": "Hooks",
+      "difficulty": 2
+    },
+    {
+      "id": 100086,
+      "question": "What is the role of useRef() Hook?",
+      "answer": "useRef returns a persistent, mutable object whose .current value can be updated without triggering re-renders.\n\n- DOM Access: Directly interact with elements (e.g., focus input).\n- Persistent Values: Store timers, previous states, or other mutable data.\n- Third-Party Libraries: Pass refs to libraries needing DOM nodes.",
+      "category": "Hooks",
+      "difficulty": 2
+    },
+    {
+      "id": 100087,
+      "question": "What are the Rules or Best Practices for hooks implementation?",
+      "answer": "- Only call hooks at the top level: don't call inside loops, conditions, or nested functions\n- Only call hooks from React functions: functional components or custom hooks\n- Keep dependencies accurate: always include all dependencies in useEffect, useCallback, useMemo\n- Use custom hooks for reusable logic: encapsulate stateful logic for cleaner components\n- Avoid unnecessary re-renders: combine useMemo, useCallback, and useRef when appropriate\n- Follow naming convention: start custom hooks with use (e.g., useFetchData)",
+      "category": "Hooks",
+      "difficulty": 2
+    },
+    {
+      "id": 100088,
+      "question": "What useState() hook return in React?",
+      "answer": "- Returns a pair (array) [state, setState]\n- state → current value of the state variable\n- setState → function to update the state\n- Calling setState triggers a re-render of the component",
+      "category": "Hooks",
+      "difficulty": 1
+    },
+    {
+      "id": 100089,
+      "question": "Tell 3 scenarios in which you can use useEffect() hook?",
+      "answer": "- Fetching data from an API when the component mounts\n- Subscribing to events (like WebSocket messages or window resize)\n- Updating the DOM or performing side effects after state or props change",
+      "category": "Hooks",
+      "difficulty": 2
+    },
+    {
+      "id": 100090,
+      "question": "How can you conditionally run effects with useEffect?",
+      "answer": "- By using the dependency array: include only the state/props you want to trigger the effect\n- Empty array [] → run once on mount\n- Specific dependencies [dep1, dep2] → run effect only when these change\n- No array → run effect after every render\n- Conditional statements inside → control what happens when it runs.",
+      "category": "Hooks",
+      "difficulty": 2
+    },
+    {
+      "id": 100091,
+      "question": "What problem do React Hooks solve?",
+      "answer": "Hooks let you use state and side effects in functional components cleanly and consistently.\n\n- Simplify stateful logic in functional components (no need for class components).\n- Avoid complexity and boilerplate of lifecycle methods in class components.\n- Enable logic reuse across components via custom hooks.\n- Improve code readability and maintainability.",
+      "category": "Hooks",
+      "difficulty": 2
+    },
+    {
+      "id": 100092,
+      "question": "What is the advantage of React Hooks over Lifecycle methods?",
+      "answer": "- Simpler syntax: No need for multiple lifecycle methods (componentDidMount, componentDidUpdate, etc.)---useEffect handles them all.\n- Reusable logic: Custom hooks let you share stateful logic across components.\n- Functional components only: Avoids this binding issues in class components.\n- Cleaner code: Less boilerplate, easier to read and maintain.\n- Better composition: Multiple effects can coexist in one component instead of being combined in a single lifecycle method.",
+      "category": "Hooks",
+      "difficulty": 3
+    },
+    {
+      "id": 100093,
+      "question": "What are the uses of all the Hooks in React?",
+      "answer": "- useState → Manage local state in functional components.\n- useEffect → Handle side effects (API calls, subscriptions, DOM updates).\n- useContext → Access shared data without prop drilling.\n- useReducer → Manage complex state logic or multiple related states.\n- useCallback → Memoize functions to prevent unnecessary re-renders.\n- useMemo → Memoize values or computations for performance optimization.\n- useRef → Access DOM elements or persist mutable values across renders.\n- useLayoutEffect → Like useEffect, but runs synchronously after DOM updates.\n- useImperativeHandle → Customize what a parent sees when using ref.\n- Custom Hooks → Encapsulate and reuse stateful logic across components.",
+      "category": "Hooks",
+      "difficulty": 3
+    },
+    {
+      "id": 100094,
+      "question": "What are Component life cycle phases?",
+      "answer": "- Mounting: constructor → render → componentDidMount\n- Updating: shouldComponentUpdate → render → getSnapshotBeforeUpdate → componentDidUpdate\n- Unmounting: componentWillUnmount\n- Error: componentDidCatch",
+      "category": "Lifecycle",
+      "difficulty": 2
+    },
+    {
+      "id": 100095,
+      "question": "What are Component life cycle methods?",
+      "answer": "- constructor() → initialize state, bind methods\n- render() → output JSX\n- componentDidMount() → after first render, fetch data, start timers\n- shouldComponentUpdate() → decide whether to re-render\n- componentDidUpdate() → after update, handle side-effects\n- getSnapshotBeforeUpdate() → capture info before DOM changes\n- componentWillUnmount() → cleanup (timers, subscriptions)\n- componentDidCatch() → handle errors in child components",
+      "category": "Lifecycle",
+      "difficulty": 2
+    },
+    {
+      "id": 100096,
+      "question": "useRef in E-commerce",
+      "answer": "\"useRef is for direct DOM manipulation or storing values across renders; most logic like scrolling, debounce, countdown, or animation can be handled by libraries.\"\n\nWhen to use useRef (Direct DOM access or cross-render storage):\n- Auto-focus input: inputRef.current.focus() / blur() / click()\n- Display price changes: Save previous price to compare when product price fluctuates (flash sale, promotion, discount)\n- Calculate discount or savings: Save previous price to quickly compute how much cheaper than before\n\nScenarios where libraries can replace useRef:\n- Scrolling lists → react-scroll-to-bottom / react-scroll\n- Search debounce → lodash.debounce / custom useDebounce hook\n- Countdown / polling → react-use (useInterval / useTimeout) or react-countdown\n- Animation / transitions → Framer Motion / react-flip-toolkit\n\n用 useRef 的情况（直接操作 DOM 或跨渲染存储）：\n- 自动聚焦 input：inputRef.current.focus() / blur() / click()\n- 计算折扣或优惠差额: 保存上一轮价格，用于快速计算比之前便宜多少\n\n可以用库代替的场景:\n- 滚动列表 → react-scroll-to-bottom / react-scroll\n- 搜索防抖 → lodash.debounce / 自定义 useDebounce\n- 倒计时 / 轮询 → react-use / react-countdown\n- 动画/过渡 → Framer Motion / react-flip-toolkit",
+      "category": "Hooks",
+      "difficulty": 3
+    },
+    {
+      "id": 100097,
+      "question": "What is the role of componentDidUpdate() method in component life cycle?",
+      "answer": "componentDidUpdate() is called after component updates (re-renders) and receives prevProps, prevState, and snapshot as parameters. It's used for side effects after updates like API calls based on prop changes, DOM manipulation, or analytics tracking. Common use cases: fetch new data when props change, update third-party libraries, scroll to new content, or compare current vs previous state/props.",
+      "category": "Lifecycle Methods",
+      "difficulty": 2
+    },
+    {
+      "id": 100098,
+      "question": "What is the role of componentWillUnmount() method in component life cycle?",
+      "answer": "componentWillUnmount() is called right before a component is destroyed and removed from the DOM. It's used for cleanup tasks like removing event listeners, canceling network requests, clearing timers/intervals, unsubscribing from external data sources, or cleaning up subscriptions to prevent memory leaks.",
+      "category": "Lifecycle Methods",
+      "difficulty": 2
+    },
+    {
+      "id": 100099,
+      "question": "How do you initialize state in a class component?",
+      "answer": "State can be initialized in class components in two ways:\n1. In constructor: constructor(props) { super(props); this.state = { count: 0 }; }\n2. Class property syntax: state = { count: 0 };\n\nThe constructor approach is more explicit and allows you to initialize state based on props, while class property syntax is more concise.",
+      "category": "Class Components",
+      "difficulty": 1
+    },
+    {
+      "id": 100100,
+      "question": "In which lifecycle phase component will be re-rendered?",
+      "answer": "Components re-render during the **Updating phase**. This phase includes componentDidUpdate(), getSnapshotBeforeUpdate(), and render() method. Re-rendering is triggered by state changes (setState), prop changes from parent, or forceUpdate() calls.",
+      "category": "Lifecycle Methods",
+      "difficulty": 2
+    },
+    {
+      "id": 100101,
+      "question": "What will happen if you don't define a constructor in your React component?",
+      "answer": "If you don't define a constructor, React will use the default constructor from the parent class (React.Component). You can still initialize state using class property syntax (state = {}), and the component will work normally. Constructor is only needed when you want to initialize state based on props or bind methods explicitly.",
+      "category": "Class Components",
+      "difficulty": 2
+    },
+    {
+      "id": 100102,
+      "question": "Why we need class components when we already have functional components?",
+      "answer": "Modern React favors functional components with Hooks, but class components are still needed for:\n- Legacy codebases that haven't migrated\n- Error boundaries (componentDidCatch, getDerivedStateFromError)\n- Some advanced lifecycle methods not yet replaced by Hooks\n- Working with older React versions (<16.8)\n- Personal/team preference or existing patterns\n\nFunctional components with Hooks are generally preferred for new development.",
+      "category": "Class Components",
+      "difficulty": 2
+    },
+    {
+      "id": 100103,
+      "question": "What are the 5 main methods of component lifecycle?",
+      "answer": "The 5 main lifecycle methods are:\n1. **constructor()** - Initialize state and bind methods\n2. **render()** - Return JSX to be rendered\n3. **componentDidMount()** - After component mounts (API calls, subscriptions)\n4. **componentDidUpdate()** - After component updates\n5. **componentWillUnmount()** - Before component unmounts (cleanup)\n\nThese cover the three main phases: Mounting, Updating, and Unmounting.",
+      "category": "Lifecycle Methods",
+      "difficulty": 2
+    },
+    {
+      "id": 100104,
+      "question": "What are Controlled Components in React?",
+      "answer": "\"Form elements whose **value is controlled by React state** and updated through **event handlers**.\"\n\n**React state is the single source of truth**\n\n- Any change in input → triggers onChange → updates state → re-renders input with new value\n- Makes **form data predictable and easier to handle/validate**\n\nExample: <input value={name} onChange={(e) => setName(e.target.value)} />",
+      "category": "Forms",
+      "difficulty": 2
+    },
+    {
+      "id": 100105,
+      "question": "What are the Differences between Controlled & Uncontrolled Components?",
+      "answer": "**Controlled Components:**\n- Value controlled by React state (value prop + onChange)\n- Easier to validate, manipulate, and submit form data\n- Single source of truth → React state\n\n**Uncontrolled Components:**\n- Value stored in the DOM (ref to access)\n- Less code, quicker to set up for simple forms\n- Harder to validate and manipulate programmatically\n\n*controlled = React state manages the form element value*\n*uncontrolled = DOM manages the value (access via ref)*",
+      "category": "Forms",
+      "difficulty": 2
+    },
+    {
+      "id": 100106,
+      "question": "What are characteristics of controlled components?",
+      "answer": "- **Element's value comes from React state** - 表单元素的值来自 React 状态\n- **Updates handled via onChange events** - 通过 onChange 事件处理更新\n- **Single source of truth** - 单一数据源，状态始终反映 UI\n- **Easy to validate/manipulate/reset** - 容易进行验证、操作或重置\n- **Enables conditional rendering or dynamic behavior** based on input values/form state",
+      "category": "Forms",
+      "difficulty": 2
+    },
+    {
+      "id": 100107,
+      "question": "How to handle forms in React?",
+      "answer": "**Controlled components** = React fully manages input state.\n**Uncontrolled components** = DOM manages input state; React accesses via refs.\n\n**Steps (Controlled):**\n- Manage state for form data\n- Validate on change or submit\n- Prevent default, handle submit\n- Optimize with single handler / debounce\n\n**Libraries:** Formik, React Hook Form, Final Form.",
+      "category": "Forms",
+      "difficulty": 2
+    },
+    {
+      "id": 100108,
+      "question": "How do you handle form validation in a controlled component?",
+      "answer": "\"Validate onChange or onSubmit using state. Show error messages from validation state.\"\n\n**Steps:**\n- **Store input values in state:** Each field's value is tracked via useState\n- **Validate on change:** Use onChange handler to check input format (e.g., regex, length)\n- **Validate on submit:** Run a final validation function in onSubmit before processing data\n- **Show error messages:** Keep an error state and display messages near inputs\n- **Disable submit if invalid:** Conditionally disable the submit button based on validation state\n- **Optional libraries:** Can use libraries like Yup + Formik or zod + react-hook-form for structured validation",
+      "category": "Forms",
+      "difficulty": 3
+    },
+    {
+      "id": 100109,
+      "question": "How can you handle multiple input fields in an uncontrolled form?",
+      "answer": "\"Use refs for inputs. Read ref.current.value on submit.\"\n\n- **Use a ref** for each input or a single ref for the form\n- Access values via ref.current.value when needed (e.g., on submit)\n- You don't store input values in state\n- Good for simple forms or when you don't need real-time validation/updates",
+      "category": "Forms",
+      "difficulty": 2
+    },
+    {
+      "id": 100110,
+      "question": "In what scenarios might using uncontrolled components be advantageous?",
+      "answer": "- **Simple forms**: Few inputs, no complex validation, quick setup\n- **Performance-sensitive forms**: Avoids re-rendering on every keystroke\n- **Third-party integrations**: When using non-React libraries that manage their own DOM state\n- **Legacy code or migration**: Easier to integrate without refactoring everything to controlled components\n\n**Examples:**\n- **Search box**: Get the query only when the user submits\n- **File upload**: Access files only upon submission, without storing them in state\n- **Coupon input**: Retrieve the value only when the user clicks \"Apply\"\n- **Comments or feedback forms**: Simple text input that doesn't require live updates",
+      "category": "Forms",
+      "difficulty": 2
+    },
+    {
+      "id": 100111,
+      "question": "What is Code Splitting in React?",
+      "answer": "- **Code Splitting**: Technique to split your React app into smaller bundles\n- **Purpose**: Load only the code needed for the current page, improving performance\n- **How**: Usually with dynamic import() and React's React.lazy + Suspense\n- **Benefit**: Faster initial load, smaller bundle sizes, better user experience",
+      "category": "Performance",
+      "difficulty": 3
+    },
+    {
+      "id": 100112,
+      "question": "What is the role of Lazy and Suspense methods in React?",
+      "answer": "\"Lazy loads components, Suspense shows fallback while loading.\"\n\n- **React.lazy()**: Dynamically imports a component only when it's needed\n- **Suspense**: Wraps lazy-loaded components and shows a fallback (like a loader) while the component is loading\n- **Purpose**: Together, they enable **code splitting** and improve app performance by loading components on demand",
+      "category": "Performance",
+      "difficulty": 3
+    },
+    {
+      "id": 100113,
+      "question": "What are the Pros and Cons of Code Splitting?",
+      "answer": "**Pros:**\n- Improves performance by loading only needed code\n- Reduces initial bundle size\n- Faster initial page load\n- Better user experience\n\n**Cons:**\n- Adds complexity to the application\n- Can cause slight loading delays for lazy-loaded components\n- Requires proper error handling and loading states\n- May increase number of network requests",
+      "category": "Performance",
+      "difficulty": 3
+    },
+    {
+      "id": 100114,
+      "question": "What is the role of the import() function in code splitting?",
+      "answer": "- **Dynamic import:** import() allows loading a module on demand instead of at initial load\n- **Used with lazy loading:** Often paired with React.lazy() to split code at component level\n- **Improves performance:** Only fetches code when needed, reducing initial bundle size\n- **Returns a Promise:** Can handle .then() or await to access the module after loading",
+      "category": "Performance",
+      "difficulty": 3
+    },
+    {
+      "id": 100115,
+      "question": "What is the purpose of the fallback prop in Suspense?",
+      "answer": "- **Shows temporary UI:** fallback displays a placeholder (like a loader) while the lazy-loaded component is being fetched\n- **Enhances user experience:** Prevents blank screens during component loading\n- **Usage:** <Suspense fallback={<Loader />}> <LazyComponent /> </Suspense>",
+      "category": "Performance",
+      "difficulty": 2
+    },
+    {
+      "id": 100116,
+      "question": "Can you dynamically load CSS files using code splitting in React?",
+      "answer": "**Yes, possible but not automatic:** You can dynamically import CSS files alongside components using import() or libraries like loadable-components.\n\n**Use case:** Only load CSS for components/pages when they are rendered, reducing initial bundle size.\n\n```javascript\nconst LazyComponent = React.lazy(() => {\n  return import('./Component').then(module => {\n    import('./Component.css'); // CSS 与组件一起动态加载\n    return module;\n  });\n});\n```\n\n**Benefit:** Speeds up initial load, especially in large apps with many styles.",
+      "category": "Performance",
+      "difficulty": 3
+    },
+    {
+      "id": 100117,
+      "question": "What are the 5 ways to Style React components? Explain Inline Styles?",
+      "answer": "**5 Ways to Style React Components:**\n- **Inline Styles** → 使用 style 属性直接写样式对象\n- **CSS Stylesheets** → 常规 .css 文件，组件中 import './App.css'\n- **CSS Modules** → 局部作用域的 CSS (App.module.css)\n- **CSS-in-JS** → styled-components, Emotion 等\n- **Utility-First CSS** → TailwindCSS 等\n\n**Inline Styles:** Use the style attribute with a JavaScript object containing CSS properties in camelCase format.",
+      "category": "Styling",
+      "difficulty": 2
+    },
+    {
+      "id": 100118,
+      "question": "What are the Top 3 ways to achieve state management? When to use what in React?",
+      "answer": "\"For small components, I use local state; for avoiding prop drilling, I use Context; and for complex global state with frequent updates, I use Redux or other state libraries.\"\n\n**1. Local State (useState, useReducer)**\n- 用途：组件内部的简单状态（输入框、开关、计数器）\n- 适合：小型组件 / 单页面应用\n\n**2. Context API**\n- 用途：避免 prop drilling，把状态传给多个深层子组件\n- 适合：中小型项目，全局主题、用户信息、语言切换\n\n**3. State Management Libraries (Redux, Zustand, Recoil, MobX, etc.)**\n- 用途：复杂的全局状态（购物车、用户会话、大型应用数据流）\n- 适合：大型项目，多人协作，跨组件共享和更新频繁的状态",
+      "category": "State Management",
+      "difficulty": 3
+    },
+    {
+      "id": 100119,
+      "question": "How can you Implement Authentication in a React application?",
+      "answer": "**Login:** Submit credentials → get JWT → store securely → update auth state.\n\n**Protect routes:** Check auth state in PrivateRoute/route guard → redirect if unauthenticated (Check auth state. If empty, load token from localStorage).\n\n**Persist session:** Validate token on app load → restore session on refresh.\n\n**Logout:** Clear token and auth state → redirect to login.\n\n\"Refresh token → HTTP-only cookie; Access token → localStorage; Refresh access token when expiring.\"\n\n**Best practices:**\n- Use HTTPS + HTTP-only cookies (prevents XSS)\n- Use context or state management (Redux) to share auth state across app",
+      "category": "Authentication",
+      "difficulty": 4
+    },
+    {
+      "id": 100120,
+      "question": "JWT Access + Refresh Token Flow",
+      "answer": "**Simple JWT Flow:**\n1. **Frontend requests** a page or API with the access token\n2. **Backend checks token**:\n   - If valid → returns data\n   - If expired → returns 401 Unauthorized\n3. **Frontend reacts** to 401: sends refresh token request\n4. **Backend checks refresh token**:\n   - If valid → returns new access token\n   - If invalid → asks user to log in again\n5. **Frontend uses new access token** to retry original request",
+      "category": "Authentication",
+      "difficulty": 4
+    },
+    {
+      "id": 100121,
+      "question": "What is the use of React Profiler?",
+      "answer": "**Purpose:** Measure performance of React components.\n\n**Use cases:**\n- Identify **slow-rendering components**\n- Detect **unnecessary re-renders**\n- Optimize component **render times**\n\n**How it works:**\n- Wrap parts of the app with <Profiler> component\n- Callback provides **mount & update durations**, **render counts**\n\n**Benefits:**\n- Helps make **React apps faster** and more efficient\n- Guides **performance optimization decisions**",
+      "category": "Performance",
+      "difficulty": 3
+    },
+    {
+      "id": 100122,
+      "question": "What is the difference between fetch & axios for api calls in React?",
+      "answer": "**Fetch**: native browser API, manual JSON parsing, rejects only on network errors.\n\n**Axios**: library, auto JSON parsing, handles HTTP errors, supports interceptors, cancellation, and timeout.\n\n**Key Differences:**\n- axios easier for production: error handling, interceptors, defaults\n- fetch is built-in, lighter, no dependencies\n- axios automatically transforms request/response data; fetch needs manual handling\n\n**Example**: In an e-commerce app, I used **Axios** for product APIs because I wanted automatic error handling and cleaner code\n\n**Usage Patterns in React:**\n- Use useEffect to fetch data on component mount\n- Always handle loading and error states\n- Optional: use **custom hooks** (useFetch) for reusable logic",
+      "category": "API Calls",
+      "difficulty": 2
+    },
+    {
+      "id": 100123,
+      "question": "How can you Optimize Performance in a React application?",
+      "answer": "**1. Code Splitting**\n- Use React.lazy() + Suspense to load components on demand\n- Dynamic import() to load only necessary modules\n- Route-level splitting: separate bundles per route for faster initial load\n\n**2. Memoization**\n- React.memo(Component) to prevent re-render if props haven't changed\n- useMemo() / useCallback() to cache expensive calculations or function references\n\n**3. Avoid Unnecessary Reconciliation**\n- Provide stable, unique key for list items\n- Use PureComponent or shouldComponentUpdate() for class components\n- Avoid creating new objects/functions/arrays in render\n\n**4. List Virtualization**\n- Use React Window or React Virtualized to render only visible items in long lists\n\n**5. Image Optimization**\n- Lazy loading: loading=\"lazy\" or libraries like react-lazyload\n- Responsive images: srcset + sizes\n- Compress images and use WebP or AVIF formats",
+      "category": "Performance",
+      "difficulty": 4
+    },
+    {
+      "id": 100124,
+      "question": "What is the role of Redux in React?",
+      "answer": "**Redux** acts as a **single source of truth** for application state, making state management **predictable**, **traceable**, and easier to maintain, especially in **large React applications**\n\n**1. Centralized State Management**\n- **Redux** stores the **entire application state** in a single store\n- This avoids **prop drilling** and allows any component to access state easily\n\n**2. Predictable State Updates**\n- State changes happen only via **actions** that describe what happened\n- **Reducers** take the current state and action and return a new state\n- This makes state updates **predictable** and **traceable**\n\n**3. Easier Debugging**\n- All **actions** and **state changes** can be logged\n- Tools like **Redux DevTools** allow inspection, time-travel, and replay of state",
+      "category": "Redux",
+      "difficulty": 3
+    },
+    {
+      "id": 100125,
+      "question": "When to use Hooks and when to use Redux in React applications?",
+      "answer": "\"If the state is **local or limited in scope**, use **Hooks**\"\n\n\"If the state is **global, complex, or widely shared**, use **Redux**\"\n\n\"Often, **Hooks and Redux can be used together**: Hooks for local UI state, Redux for global app state\"\n\n**Hooks (useState, useReducer, useContext, etc.)**\n- Use **Hooks** for **local component state** or **state shared among a few components**\n- Ideal for **UI state**, **form inputs**, **toggle states**, and **small-scale data management**\n- Simple, easy to implement, avoids the overhead of a global store\n\n**Redux**\n- Use **Redux** for **global application state** shared across many components\n- Ideal for **complex state management**, **frequent updates**, or **cross-component communication**\n- Useful when debugging, logging, or time-traveling state changes with **Redux DevTools**",
+      "category": "Redux",
+      "difficulty": 3
+    },
+    {
+      "id": 100126,
+      "question": "What is the Flow of data in React while using Redux?",
+      "answer": "\"In React with **Redux**, **user actions** trigger an **action object** that is **dispatched** to the **store**. The **reducer** processes the action, returns a **new state**, and subscribed components (**useSelector** or **connect**) automatically **re-render** with the updated state.\"\n\n\"The flow is **Action → Dispatch → Reducer → Store Update → React Component**\"\n\n\"This ensures a **predictable, unidirectional data flow** in the application\"\n\n**Detailed Flow:**\n1. **Action** - User interaction triggers an action object\n2. **Dispatch** - Action sent to Redux store using dispatch()\n3. **Reducer** - Pure function takes current state and action, returns new state\n4. **Store Update** - Redux store updated with new state\n5. **React Components** - Subscribed components automatically re-render with updated state",
+      "category": "Redux",
+      "difficulty": 3
+    },
+    {
+      "id": 100127,
+      "question": "What are Action Creators in React Redux?",
+      "answer": "- **Action Creators** are **functions** that **create and return action objects**\n- They encapsulate the process of creating actions, making the code **more reusable** and **less error-prone**\n- Instead of manually writing the action object every time, you **call the action creator** and dispatch its result to the store\n\n**Example:**\n```javascript\nconst addTodo = (text) => ({ type: 'ADD_TODO', payload: text });\ndispatch(addTodo('Learn Redux'));\n```\n\n- Using action creators improves **code clarity**, **consistency**, and **maintainability** in Redux applications",
+      "category": "Redux",
+      "difficulty": 2
+    },
+    {
+      "id": 100128,
+      "question": "Difference between Action Creators, Action Object & Action Type?",
+      "answer": "**Action Type** = identifies the action\n**Action Object** = the actual data sent to the store\n**Action Creator** = function that generates the action object\n\n**Action Type**\n- A **string constant** that describes **what happened** in the app\n- Example: 'ADD_TODO'\n- Used by reducers to identify how to update the state\n\n**Action Object**\n- A **plain JavaScript object** with at least a **type** property\n- Describes the **action that occurred**, often includes **payload data**\n- Example: { type: 'ADD_TODO', payload: 'Learn Redux' }\n\n**Action Creator**\n- A **function** that **returns an action object**\n- Helps **avoid repeating code** and keeps action creation consistent\n- Example: const addTodo = (text) => ({ type: 'ADD_TODO', payload: text });",
+      "category": "Redux",
+      "difficulty": 2
+    },
+    {
+      "id": 100129,
+      "question": "Explain React Component Structure while using Redux?",
+      "answer": "\"In a React-Redux app, components can be categorized as **Presentational (UI) Components** and **Container (Connected) Components**.\"\n\n**1. Presentational Components**\n- Focus on **UI rendering** and **displaying data**\n- Receive **props** from parent or container components\n- Usually **stateless** (can use Hooks for local state)\n- Do **not directly interact with the Redux store**\n\n**2. Container Components (Connected Components)**\n- Responsible for **connecting to the Redux store**\n- Use **react-redux** methods: connect() or Hooks like **useSelector** and **useDispatch**\n- Fetch **state from the store** and **dispatch actions**\n- Pass data and callbacks down to **presentational components**\n\n**3. Component Flow**\n- **State** lives in Redux store\n- **Container components** read state and dispatch actions\n- **Presentational components** render the UI based on props\n- Ensures **unidirectional data flow** and separation of **UI vs state logic**",
+      "category": "Redux",
+      "difficulty": 3
+    },
+    {
+      "id": 100130,
+      "question": "What is the role of Store in React Redux?",
+      "answer": "\"Store = **centralized state container**\"\n\n\"Manages state access, updates, and subscriptions\"\n\n\"Enables **unidirectional, predictable data flow** in a Redux app\"\n\n- The **store** is the **single source of truth** for the application state\n- It **holds the entire state tree** of the app in one place\n- The store allows components to **access state** via useSelector or connect()\n- It provides a way to **update state** by **dispatching actions**\n- The store ensures **predictable state management** through **reducers**, making state changes **traceable and consistent**\n- Additional capabilities include **subscribing to state changes** and integrating **middleware** for logging, async actions, or side effects",
+      "category": "Redux",
+      "difficulty": 3
+    },
+    {
+      "id": 100131,
+      "question": "What is the role of Reducer in Redux?",
+      "answer": "\"Reducer = **pure function** that updates state based on action\"\n\n\"Ensures **predictable, traceable, and consistent state management** in Redux\"\n\nA **reducer** is a **pure function** that determines how the **state changes** in response to an **action**.\n\n- It takes the **current state** and an **action object** as arguments and returns a **new state**\n- Reducers **never mutate the state directly**; they always return a **new state object**\n- They ensure **predictable state updates** and are the core of Redux's **unidirectional data flow**\n- Multiple reducers can be **combined** using combineReducers to manage different parts of the state",
+      "category": "Redux",
+      "difficulty": 3
+    },
+    {
+      "id": 100132,
+      "question": "Explain the Core Principles of Redux?",
+      "answer": "**Single store** = centralized state\n\n**State is immutable** = updates via actions\n\n**Reducers are pure** = predictable state changes\n\n\"Together, these principles ensure **unidirectional, traceable, and maintainable state management** in Redux\"\n\n**1. Single Source of Truth**\n- The **entire application state** is stored in a **single store**\n- Makes it easier to **track, debug, and manage state**\n\n**2. State is Read-Only**\n- The **only way to change state** is by **dispatching actions**\n- This ensures **predictable state updates** and avoids direct mutation\n\n**3. Changes are Made with Pure Functions (Reducers)**\n- **Reducers** take the **current state** and an **action** and return a **new state**\n- Reducers are **pure**, meaning no side effects and always return the same output for the same input",
+      "category": "Redux",
+      "difficulty": 4
+    },
+    {
+      "id": 100133,
+      "question": "List 5 benefits of using Redux in React?",
+      "answer": "\"Redux provides a **single source of truth** for application state, ensures **predictable state updates** through **actions and reducers**, and makes **debugging and testing** easier with tools like Redux DevTools. It simplifies **state sharing** across components and improves **maintainability** by separating **state logic** from UI components.\"\n\n**1. Single Source of Truth**\n- All application state is stored in **one centralized store**, making state management easier and more predictable\n\n**2. Predictable State Updates**\n- State changes happen only via **actions** and **reducers**, ensuring updates are **consistent** and **traceable**\n\n**3. Easier Debugging and Testing**\n- With tools like **Redux DevTools**, you can **log, inspect, and replay actions**, simplifying debugging and testing\n\n**4. Centralized State for Large Applications**\n- Makes it easy to **share state across multiple components** without prop drilling\n\n**5. Enhanced Maintainability**\n- Encourages **structured and organized code** by separating **state logic** (reducers/actions) from **UI components**",
+      "category": "Redux",
+      "difficulty": 3
+    },
+    {
+      "id": 100134,
+      "question": "What are the differences between local component state & Redux state?",
+      "answer": "- Use **Local State** for **small, component-specific data**\n- Use **Redux State** for **global, shared, or complex state**\n\n**Local Component State:**\n- Managed within individual components using useState/useReducer\n- Good for UI-specific data (form inputs, toggles, modals)\n- Faster to implement for simple cases\n- Dies with component unmounting\n\n**Redux State:**\n- Centralized in Redux store, accessible by any component\n- Good for data shared across multiple components\n- Persists across component lifecycle\n- Better for complex state logic and debugging\n- Requires more setup but provides better structure for large apps",
+      "category": "Redux",
+      "difficulty": 2
+    },
+    {
+      "id": 100135,
+      "question": "What is Provider Component? How components getting the state from Redux store?",
+      "answer": "- **Provider** = makes the Redux **store available** to all child components\n- Components get state via **useSelector** or **connect()**\n- Ensures **unidirectional data flow** and **centralized state access**\n\n**Provider Component:**\n- Wraps the entire React app to provide Redux store context\n- Uses React Context API under the hood\n- Typically placed in index.js or App.js: <Provider store={store}><App /></Provider>\n\n**Getting State from Store:**\n- **useSelector hook**: const todos = useSelector(state => state.todos)\n- **connect() function**: Higher-order component that maps state to props\n- Components automatically re-render when subscribed state changes",
+      "category": "Redux",
+      "difficulty": 3
+    },
+    {
+      "id": 100136,
+      "question": "What are the 4 Important Files in React-Redux project?",
+      "answer": "**Store** = centralized state container\n\n**Reducers** = manage state updates\n\n**Actions** = define what changes state\n\n**Provider / Entry File** = make store available to components\n\n**1. Store File**\n- Defines the **Redux store** and integrates **reducers** and **middleware**\n- Example: store.js or index.js in the store folder\n\n**2. Reducer File(s)**\n- Contains **pure functions** that manage how state changes in response to **actions**\n- Usually organized per feature, e.g., todosReducer.js, authReducer.js\n\n**3. Action File(s)**\n- Contains **action creators** and **action type constants**\n- Helps **standardize actions** and keeps code maintainable\n\n**4. Provider / App Entry File**\n- Usually index.js or App.js\n- Wraps the **React application** with <Provider store={store}>\n- Ensures all **components can access the Redux store**",
+      "category": "Redux",
+      "difficulty": 3
+    },
+    {
+      "id": 100137,
+      "question": "How to structure the project and maintain state in multiple components?",
+      "answer": "- Use **Redux** for **shared or complex state** across components\n- Use **local state** for **component-specific UI data**\n- Organize code by **feature or domain**, separating **actions, reducers, store, and UI**\n- Ensure **unidirectional data flow**: Action → Reducer → Store → Component\n\n**Project Structure:**\n- /store - Redux store configuration\n- /actions - Action creators and types\n- /reducers - State management logic\n- /components - UI components\n- /containers - Connected components\n- /middleware - Custom middleware\n- /utils - Helper functions\n\n**State Management Strategy:**\n- Keep UI state local (modals, forms, toggles)\n- Move shared state to Redux (user data, app settings)\n- Use normalized state structure for complex data\n- Implement proper error handling and loading states",
+      "category": "Redux",
+      "difficulty": 4
+    },
+    {
+      "id": 100138,
+      "question": "Explain the concept of immutability in the context of Redux?",
+      "answer": "**Immutable state** = never mutate existing state\n\n**Reducers return new state**\n\n\"Ensures **predictable, traceable, and maintainable state management**\"\n\n- **Immutability** means that the **state should never be changed directly**\n- Instead of modifying the existing state object, **reducers return a new state object** with the necessary updates\n- This ensures **predictable state changes**, **easy debugging**, and compatibility with **time-travel debugging** in tools like **Redux DevTools**\n- Techniques to maintain immutability include using **spread operator (...)**, **Object.assign()**, or libraries like **Immer**\n\n**Benefits:**\n- Enables efficient change detection\n- Prevents accidental mutations\n- Supports undo/redo functionality\n- Makes testing easier and more reliable",
+      "category": "Redux",
+      "difficulty": 3
+    },
+    {
+      "id": 100139,
+      "question": "Which are the typical properties of an Action object in React-Redux project?",
+      "answer": "**type** = identifies the action\n\n**payload** = data for the reducer\n\n**meta** = extra info for middleware or logging\n\n**error** = indicates error actions\n\n**type (required)**\n- **A string constant that describes what happened**\n- **Used by reducers to determine how to update the state**\n\n**payload (optional)**\n- **Contains the data needed to update the state**\n- **Example: user input, API response, or any relevant information**\n\n**meta (optional)**\n- **Provides extra information about the action, often used for logging or analytics**\n\n**error (optional)**\n- **Indicates whether the action represents an error state**\n\nExample: { type: 'ADD_TODO', payload: { id: 1, text: 'Learn Redux' }, meta: { timestamp: Date.now() } }",
+      "category": "Redux",
+      "difficulty": 2
+    },
+    {
+      "id": 100140,
+      "question": "What is Payload property in Redux?",
+      "answer": "**Payload** = the **data** carried by an action to update the state\n\n\"Ensures **reducers remain pure** and **state updates are predictable**\"\n\n- The **payload** property of an **action object** contains the **data needed** to update the state\n- It is **optional** but commonly used to pass **user input, API responses, or any relevant information** to the reducer\n- The **reducer** reads the payload and uses it to **return a new state** without mutating the previous state\n\n**Examples:**\n- Add item: { type: 'ADD_ITEM', payload: { name: 'New Item' } }\n- Update user: { type: 'UPDATE_USER', payload: { id: 1, email: 'new@email.com' } }\n- Set loading: { type: 'SET_LOADING', payload: true }",
+      "category": "Redux",
+      "difficulty": 2
+    },
+    {
+      "id": 100141,
+      "question": "What is the difference between Regular Action creator & Thunk action creator?",
+      "answer": "**Regular Action Creator** = returns a **plain action object**, synchronous\n\n**Thunk Action Creator** = returns a **function** to perform **async logic** before dispatching actions\n\n**Regular Action Creator**\n- A **function** that **returns a plain action object** with at least a **type** property\n- **Synchronous**: dispatched immediately, no async logic inside\n- Example: const addTodo = (text) => ({ type: 'ADD_TODO', payload: text })\n\n**Thunk Action Creator**\n- A **function** that **returns another function** instead of an action object\n- The returned function receives **dispatch** and **getState** as arguments\n- Used to handle **asynchronous operations** like API calls before dispatching a regular action\n- Example: const fetchTodos = () => (dispatch) => { fetch('/api/todos').then(data => dispatch(setTodos(data))); }",
+      "category": "Redux",
+      "difficulty": 3
+    },
+    {
+      "id": 100142,
+      "question": "Explain the concept of Middleware in React-Redux?",
+      "answer": "**Middleware** = intercepts actions before they reach the reducer\n\n\"Enables **async operations, logging, or side effects**\"\n\n\"Keeps **reducers pure** by handling side effects outside of them\"\n\n- **Middleware** is a **function that sits between dispatching an action and the moment it reaches the reducer**\n- It allows you to **intercept, modify, or perform side effects** such as **logging, asynchronous API calls, or error handling**\n- Common middleware examples include **redux-thunk** (for async actions) and **redux-logger** (for logging actions)\n- Middleware receives **store API** (dispatch, getState) and **next** function to pass actions along the chain\n\n**Common Middleware:**\n- redux-thunk: Handle async actions\n- redux-logger: Log actions and state changes\n- redux-saga: Complex async flow control\n- Custom middleware: Authentication, analytics, etc.",
+      "category": "Redux",
+      "difficulty": 4
+    },
+    {
+      "id": 100143,
+      "question": "How can you handle Asynchronous Operations & side-effect in React-Redux?",
+      "answer": "**Async ops and side effects** should be handled in **middleware** (Thunk, Saga, etc.)\n\n\"Keeps **reducers pure** and state **predictable**\"\n\n\"Use **dispatch** to update store once async task completes\"\n\n**Using Thunk Middleware**\n- **redux-thunk** allows **action creators to return functions** instead of plain action objects\n- These functions receive **dispatch** and **getState**, enabling **async API calls** before dispatching a normal action\n- Example:\n```javascript\nconst fetchTodos = () => (dispatch) => {\n  fetch('/todos')\n    .then(res => res.json())\n    .then(data => dispatch({ type: 'SET_TODOS', payload: data }));\n};\n```\n\n**Using Redux-Saga**\n- **redux-saga** uses **generator functions** to handle **complex async flows**\n- Provides **better control** for handling sequences, cancellations, and side effects\n\n**Using Middleware for Side Effects**\n- Middleware can handle tasks like **logging, analytics, notifications, or error handling**\n- Keeps **reducers pure** by separating **side effects** from **state logic**",
+      "category": "Redux",
+      "difficulty": 4
+    },
+    {
+      "id": 100144,
+      "question": "How does Error Handling work in Redux?",
+      "answer": "**Error handling** = include **error info in actions**, update **state via reducers**, optionally use **middleware**\n\n\"Keeps **reducers pure** and state **predictable**\"\n\n- **Errors are typically handled through actions and reducers** rather than throwing exceptions directly in components\n- A common pattern is to include an **error property** in the action object when an operation fails\n- Reducers check the **error property** and update the state accordingly, e.g., setting an **error message** in the store\n- Example:\n```javascript\ndispatch({ type: 'FETCH_TODOS_FAILURE', error: 'Unable to fetch todos' });\n\nfunction todosReducer(state = initialState, action) {\n  switch(action.type) {\n    case 'FETCH_TODOS_FAILURE':\n      return { ...state, error: action.error };\n    default:\n      return state;\n  }\n}\n```\n- Middleware like **redux-thunk** or **redux-saga** can also **catch async errors** and dispatch failure actions",
+      "category": "Redux",
+      "difficulty": 3
     }
-  ]}
+  ]
+}

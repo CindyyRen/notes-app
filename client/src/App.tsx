@@ -1,33 +1,29 @@
 import { useEffect, useState } from 'react';
-import type { Flashcard } from './types'; // 注意加了 type 关键字
+import type { Flashcard } from './types';
+import FlashcardContainer from './components/FlashcardContainer';
+import './index.css'; // Tailwind CSS
 
 function App() {
   const [cards, setCards] = useState<Flashcard[]>([]);
 
   useEffect(() => {
-    fetch('http://localhost:5000/flashcards') // 你的 express 路由
+    fetch('http://localhost:5000/flashcards')
       .then((res) => res.json())
       .then((data) => setCards(data))
       .catch((err) => console.error(err));
   }, []);
 
   return (
-    <div style={{ padding: '2rem' }}>
-      <h1>Flashcards</h1>
-      {cards.length === 0 ? (
-        <p>Loading...</p>
-      ) : (
-        <ul>
-          {cards.map((card) => (
-            <li key={card.id}>
-              <strong>Q:</strong> {card.question} <br />
-              <strong>A:</strong> {card.answer} <br />
-              <em>Difficulty: {card.difficulty}</em>
-              <hr />
-            </li>
-          ))}
-        </ul>
-      )}
+    <div className="min-h-screen bg-gray-100 ">
+      <div className="container mx-auto px-4">
+        <div className="bg-white shadow-lg rounded-lg max-w-5xl mx-auto p-0">
+          {cards.length === 0 ? (
+            <p className="text-center text-gray-600">Loading...</p>
+          ) : (
+            <FlashcardContainer flashcards={cards} setCards={setCards}/>
+          )}
+        </div>
+      </div>
     </div>
   );
 }
