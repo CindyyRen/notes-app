@@ -13,6 +13,7 @@ model Flashcard {
   question   String
   answer     String
   difficulty Difficulty @default(EASY)
+  tags       String[]   @default([])
 }
 
 enum Difficulty {

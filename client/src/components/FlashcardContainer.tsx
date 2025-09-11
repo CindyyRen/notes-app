@@ -1,7 +1,8 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import type { Difficulty, Flashcard } from '../types';
 import { MagnifyingGlassIcon } from '@heroicons/react/24/outline';
 import Modal from './Modal';
+import { TagInput } from './TagInput';
 
 interface FlashcardContainerProps {
   flashcards: Flashcard[];
@@ -18,14 +19,37 @@ const FlashcardContainer: React.FC<FlashcardContainerProps> = ({
   const [isEditing, setIsEditing] = useState(false);
   const [editValue, setEditValue] = useState('');
   const [showForm, setShowForm] = useState(false);
-  const [selectedDifficulty, setSelectedDifficulty] = useState(
-    selected?.difficulty || 'EASY'
-  );
-  const [selectedCategory, setSelectedCategory] = useState(
-    selected?.category || 'REACT'
-  );
 
+  const [editingData, setEditingData] = useState<{
+    difficulty: Difficulty;
+    category: string;
+    tags: string[];
+  }>({
+    difficulty: 'EASY' as Difficulty,
+    category: 'REACT',
+    tags: [],
+  });
+  useEffect(() => {
+    if (selected) {
+      console.log('Selected flashcard:', selected); // 调试日志
+      console.log(
+        'Selected difficulty:',
+        selected.difficulty,
+        typeof selected.difficulty
+      );
+
+      setEditingData({
+        // 修复：确保 difficulty 是有效的 Difficulty 类型
+        difficulty: (['EASY', 'MEDIUM', 'HARD'].includes(selected.difficulty)
+          ? selected.difficulty
+          : 'EASY') as Difficulty,
+        category: selected.category || 'REACT',
+        tags: Array.isArray(selected.tags) ? selected.tags : [],
+      });
+    }
+  }, [selected]);
   const handleSelect = (fc: Flashcard) => {
+    console.log('Selecting flashcard:', fc); // 调试日志
     setSelected(fc);
     setShowAnswer(false); // 每次选题重置为隐藏答案
     setIsEditing(false); // 重置编辑状态
@@ -42,53 +66,88 @@ const FlashcardContainer: React.FC<FlashcardContainerProps> = ({
     answer: string;
     category: string;
     difficulty: string;
+    tags: string[];
   }) => {
     try {
+      console.log('Creating flashcard with data:', data);
+
       const res = await fetch('http://localhost:5000/flashcards', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(data),
       });
+
+      if (!res.ok) {
+        const errorText = await res.text();
+        throw new Error(`HTTP ${res.status}: ${errorText}`);
+      }
+
       const newCard = await res.json();
-      setCards((prev) => [...prev, newCard]); // 添加到列表
+      console.log('Created flashcard:', newCard);
+      setCards((prev) => [...prev, newCard]);
     } catch (err) {
-      console.error(err);
+      console.error('Error creating flashcard:', err);
+      alert('Failed to create flashcard. Check console for details.');
     }
   };
 
   const handleSave = async () => {
     if (!selected) return;
+
     try {
+      const updateData = {
+        ...selected,
+        answer: editValue,
+        difficulty: editingData.difficulty,
+        category: editingData.category,
+        tags: editingData.tags,
+      };
+
+      console.log('Updating flashcard with data:', updateData);
+
       const res = await fetch(
         `http://localhost:5000/flashcards/${selected.id}`,
         {
           method: 'PATCH',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            ...selected,
-            answer: editValue,
-            difficulty: selectedDifficulty,
-            category: selectedCategory,
-          }),
+          body: JSON.stringify(updateData),
         }
       );
+
+      if (!res.ok) {
+        const errorText = await res.text();
+        throw new Error(`HTTP ${res.status}: ${errorText}`);
+      }
+
       const updated = await res.json();
+      console.log('Updated flashcard:', updated);
+
       setSelected(updated);
       setIsEditing(false);
+
+      setCards((prev) =>
+        prev.map((card) => (card.id === updated.id ? updated : card))
+      );
     } catch (err) {
-      console.error(err);
+      console.error('Error updating flashcard:', err);
+      alert('Failed to update flashcard. Check console for details.');
     }
   };
   const handleDelete = async (id: number) => {
     try {
-      await fetch(`http://localhost:5000/flashcards/${id}`, {
+      const res = await fetch(`http://localhost:5000/flashcards/${id}`, {
         method: 'DELETE',
       });
-      // 前端更新状态，移除已删除的卡片
+
+      if (!res.ok) {
+        throw new Error(`HTTP ${res.status}`);
+      }
+
       setCards((prev) => prev.filter((fc) => fc.id !== id));
       if (selected?.id === id) setSelected(null);
     } catch (err) {
-      console.error(err);
+      console.error('Error deleting flashcard:', err);
+      alert('Failed to delete flashcard.');
     }
   };
 
@@ -167,14 +226,17 @@ const FlashcardContainer: React.FC<FlashcardContainerProps> = ({
                     Cancel
                   </button>
                 </div>
-                <div className="flex gap-4 mt-2">
+                <div className="flex gap-4 mt-2  items-end min-h-18  mb-3">
                   {/* Difficulty */}
                   <div className="flex flex-col flex-1">
                     <label className="text-sm font-medium">Difficulty</label>
                     <select
-                      value={selectedDifficulty}
+                      value={editingData.difficulty}
                       onChange={(e) =>
-                        setSelectedDifficulty(e.target.value as Difficulty)
+                        setEditingData((prev) => ({
+                          ...prev,
+                          difficulty: e.target.value as Difficulty,
+                        }))
                       }
                       className="mt-1 w-full border border-gray-300 rounded p-2"
                     >
@@ -188,8 +250,13 @@ const FlashcardContainer: React.FC<FlashcardContainerProps> = ({
                   <div className="flex flex-col flex-1">
                     <label className="text-sm font-medium">Category</label>
                     <select
-                      value={selectedCategory}
-                      onChange={(e) => setSelectedCategory(e.target.value)}
+                      value={editingData.category}
+                      onChange={(e) =>
+                        setEditingData((prev) => ({
+                          ...prev,
+                          category: e.target.value,
+                        }))
+                      }
                       className="mt-1 w-full border border-gray-300 rounded p-2"
                     >
                       <option value="REACT">React</option>
@@ -199,6 +266,12 @@ const FlashcardContainer: React.FC<FlashcardContainerProps> = ({
                       <option value="OTHER">Other</option>
                     </select>
                   </div>
+                  <TagInput
+                    tags={editingData.tags}
+                    setTags={(tags) =>
+                      setEditingData((prev) => ({ ...prev, tags }))
+                    }
+                  />
                 </div>
 
                 <textarea
@@ -258,6 +331,9 @@ const FlashcardContainer: React.FC<FlashcardContainerProps> = ({
                     </small>
                     <small className="block text-gray-500">
                       Category: {selected.category}
+                    </small>
+                    <small className="block text-gray-500">
+                      Tags: {selected.tags?.[0] ?? 'No tags'}
                     </small>
                   </>
                 )}

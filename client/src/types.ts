@@ -1,10 +1,11 @@
-export type Difficulty = 'EASY' | 'MEDIUM' | 'HARD'; // 对应你的 Difficulty enum
+
+export type Difficulty = 'EASY' | 'MEDIUM' | 'HARD';
 
 export interface Flashcard {
   id: number;
-  category?: string;
   question: string;
   answer: string;
-  difficulty?: Difficulty; // 可选，默认 EASY
+  category: string;
+  difficulty: Difficulty; // 确保这里用的是 Difficulty 类型
+  tags?: string[]; // 注意可选字段
 }
-
