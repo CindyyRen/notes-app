@@ -19,12 +19,16 @@ const FlashcardContainer: React.FC<FlashcardContainerProps> = ({
   const [isEditing, setIsEditing] = useState(false);
   const [editValue, setEditValue] = useState('');
   const [showForm, setShowForm] = useState(false);
+  const [editingId, setEditingId] = useState<number | null>(null);
+  const [tempValue, setTempValue] = useState('');
 
   const [editingData, setEditingData] = useState<{
+    question: string;
     difficulty: Difficulty;
     category: string;
     tags: string[];
   }>({
+    question: selected?.question || '',
     difficulty: 'EASY' as Difficulty,
     category: 'REACT',
     tags: [],
@@ -39,6 +43,7 @@ const FlashcardContainer: React.FC<FlashcardContainerProps> = ({
       );
 
       setEditingData({
+        question: selected.question || '', // ✅ 这里加上
         // 修复：确保 difficulty 是有效的 Difficulty 类型
         difficulty: (['EASY', 'MEDIUM', 'HARD'].includes(selected.difficulty)
           ? selected.difficulty
@@ -133,6 +138,36 @@ const FlashcardContainer: React.FC<FlashcardContainerProps> = ({
       alert('Failed to update flashcard. Check console for details.');
     }
   };
+
+  const handleTitleSave = async (id: number) => {
+    if (!selected) return;
+
+    try {
+      const updateData = {
+        ...selected,
+        question: tempValue, // ⚡ 注意：用 tempValue 而不是 editingData.question
+      };
+
+      const res = await fetch(`http://localhost:5000/flashcards/${id}`, {
+        method: 'PATCH',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(updateData),
+      });
+
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+
+      const updated = await res.json();
+
+      setSelected(updated);
+      setCards((prev) =>
+        prev.map((card) => (card.id === updated.id ? updated : card))
+      );
+      setEditingId(null); // 保存完退出编辑模式
+    } catch (err) {
+      console.error('Error updating flashcard:', err);
+    }
+  };
+
   const handleDelete = async (id: number) => {
     try {
       const res = await fetch(`http://localhost:5000/flashcards/${id}`, {
@@ -183,7 +218,7 @@ const FlashcardContainer: React.FC<FlashcardContainerProps> = ({
           + New
         </button>
         {/* 问题列表 - 可滚动区域 */}
-        <div className="flex-1 overflow-y-auto p-4">
+        {/* <div className="flex-1 overflow-y-auto p-4">
           <ul className="divide-y divide-gray-200">
             {filteredFlashcards.map((fc) => (
               <li
@@ -194,6 +229,45 @@ const FlashcardContainer: React.FC<FlashcardContainerProps> = ({
                 onClick={() => handleSelect(fc)}
               >
                 {fc.question}
+              </li>
+            ))}
+            {filteredFlashcards.length === 0 && (
+              <li className="py-2 px-2 text-gray-400 text-sm">No results</li>
+            )}
+          </ul>
+        </div> */}
+        <div className="flex-1 overflow-y-auto p-4">
+          <ul className="divide-y divide-gray-200">
+            {filteredFlashcards.map((fc) => (
+              <li
+                key={fc.id}
+                className={`py-2 px-2 cursor-pointer hover:bg-blue-50 transition rounded ${
+                  selected?.id === fc.id ? 'bg-blue-100' : ''
+                }`}
+                onClick={() => handleSelect(fc)}
+              >
+                {editingId === fc.id ? (
+                  <input
+                    autoFocus
+                    value={tempValue}
+                    onChange={(e) => setTempValue(e.target.value)}
+                    onBlur={() => handleTitleSave(fc.id)} // 失焦保存
+                    onKeyDown={(e) => {
+                      if (e.key === 'Enter') handleTitleSave(fc.id); // 回车保存
+                      if (e.key === 'Escape') setEditingId(null); // ESC 取消
+                    }}
+                    className="w-full border rounded px-2 py-1"
+                  />
+                ) : (
+                  <span
+                    onDoubleClick={() => {
+                      setEditingId(fc.id);
+                      setTempValue(fc.question);
+                    }}
+                  >
+                    {fc.question}
+                  </span>
+                )}
               </li>
             ))}
             {filteredFlashcards.length === 0 && (
