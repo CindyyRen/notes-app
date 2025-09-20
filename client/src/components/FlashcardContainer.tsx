@@ -1,17 +1,19 @@
 import { useEffect, useState } from 'react';
-import type { Difficulty, Flashcard } from '../types';
+import type { Difficulty, Flashcard, FlashcardInput } from '../types';
 import { MagnifyingGlassIcon } from '@heroicons/react/24/outline';
 import Modal from './Modal';
 import { TagInput } from './TagInput';
-
+import {
+  useCreateFlashcard,
+  useDeleteFlashcard,
+  useEditFlashcard,
+} from '../../hooks/useFlashcards';
 interface FlashcardContainerProps {
   flashcards: Flashcard[];
-  setCards: React.Dispatch<React.SetStateAction<Flashcard[]>>;
 }
 
 const FlashcardContainer: React.FC<FlashcardContainerProps> = ({
   flashcards,
-  setCards,
 }) => {
   const [selected, setSelected] = useState<Flashcard | null>(null);
   const [showAnswer, setShowAnswer] = useState(false);
@@ -21,6 +23,9 @@ const FlashcardContainer: React.FC<FlashcardContainerProps> = ({
   const [showForm, setShowForm] = useState(false);
   const [editingId, setEditingId] = useState<number | null>(null);
   const [tempValue, setTempValue] = useState('');
+  const createFlashcardMutation = useCreateFlashcard();
+  const editFlashcardMutation = useEditFlashcard();
+  const deleteFlashcardMutation = useDeleteFlashcard();
 
   const [editingData, setEditingData] = useState<{
     question: string;
@@ -66,77 +71,33 @@ const FlashcardContainer: React.FC<FlashcardContainerProps> = ({
       setIsEditing(true);
     }
   };
-  const handleCreate = async (data: {
-    question: string;
-    answer: string;
-    category: string;
-    difficulty: string;
-    tags: string[];
-  }) => {
-    try {
-      console.log('Creating flashcard with data:', data);
 
-      const res = await fetch('http://localhost:5000/flashcards', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(data),
-      });
-
-      if (!res.ok) {
-        const errorText = await res.text();
-        throw new Error(`HTTP ${res.status}: ${errorText}`);
-      }
-
-      const newCard = await res.json();
-      console.log('Created flashcard:', newCard);
-      setCards((prev) => [...prev, newCard]);
-    } catch (err) {
-      console.error('Error creating flashcard:', err);
-      alert('Failed to create flashcard. Check console for details.');
-    }
-  };
-
-  const handleSave = async () => {
+  const handleSave = () => {
     if (!selected) return;
 
-    try {
-      const updateData = {
-        ...selected,
-        answer: editValue,
-        difficulty: editingData.difficulty,
-        category: editingData.category,
-        tags: editingData.tags,
-      };
+    // 构造更新数据
+    const updateData: FlashcardInput = {
+      question: editingData.question,
+      answer: editValue,
+      difficulty: editingData.difficulty,
+      category: editingData.category,
+      tags: editingData.tags,
+    };
 
-      console.log('Updating flashcard with data:', updateData);
-
-      const res = await fetch(
-        `http://localhost:5000/flashcards/${selected.id}`,
-        {
-          method: 'PATCH',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(updateData),
-        }
-      );
-
-      if (!res.ok) {
-        const errorText = await res.text();
-        throw new Error(`HTTP ${res.status}: ${errorText}`);
+    // 调用 mutate
+    editFlashcardMutation.mutate(
+      { id: selected.id, data: updateData },
+      {
+        onSuccess: (updated) => {
+          setSelected(updated); // 更新当前选中的 flashcard
+          setIsEditing(false); // 关闭编辑模式
+        },
+        onError: (err) => {
+          console.error('Failed to edit flashcard:', err);
+          alert('Failed to save changes.');
+        },
       }
-
-      const updated = await res.json();
-      console.log('Updated flashcard:', updated);
-
-      setSelected(updated);
-      setIsEditing(false);
-
-      setCards((prev) =>
-        prev.map((card) => (card.id === updated.id ? updated : card))
-      );
-    } catch (err) {
-      console.error('Error updating flashcard:', err);
-      alert('Failed to update flashcard. Check console for details.');
-    }
+    );
   };
 
   const handleTitleSave = async (id: number) => {
@@ -159,32 +120,44 @@ const FlashcardContainer: React.FC<FlashcardContainerProps> = ({
       const updated = await res.json();
 
       setSelected(updated);
-      setCards((prev) =>
-        prev.map((card) => (card.id === updated.id ? updated : card))
-      );
+      // setCards((prev) =>
+      //   prev.map((card) => (card.id === updated.id ? updated : card))
+      // );
       setEditingId(null); // 保存完退出编辑模式
     } catch (err) {
       console.error('Error updating flashcard:', err);
     }
   };
-
-  const handleDelete = async (id: number) => {
-    try {
-      const res = await fetch(`http://localhost:5000/flashcards/${id}`, {
-        method: 'DELETE',
-      });
-
-      if (!res.ok) {
-        throw new Error(`HTTP ${res.status}`);
-      }
-
-      setCards((prev) => prev.filter((fc) => fc.id !== id));
-      if (selected?.id === id) setSelected(null);
-    } catch (err) {
-      console.error('Error deleting flashcard:', err);
-      alert('Failed to delete flashcard.');
-    }
+  const handleDelete = (id: number) => {
+    deleteFlashcardMutation.mutate(id, {
+      onSuccess: () => {
+        // 如果当前选中的就是被删的卡片，清空
+        if (selected?.id === id) setSelected(null);
+      },
+      onError: (error) => {
+        console.error('Error deleting flashcard:', error);
+        alert('Failed to delete flashcard.');
+      },
+    });
   };
+
+  // const handleDelete = async (id: number) => {
+  //   try {
+  //     const res = await fetch(`http://localhost:5000/flashcards/${id}`, {
+  //       method: 'DELETE',
+  //     });
+
+  //     if (!res.ok) {
+  //       throw new Error(`HTTP ${res.status}`);
+  //     }
+
+  //     // setCards((prev) => prev.filter((fc) => fc.id !== id));
+  //     if (selected?.id === id) setSelected(null);
+  //   } catch (err) {
+  //     console.error('Error deleting flashcard:', err);
+  //     alert('Failed to delete flashcard.');
+  //   }
+  // };
 
   // 根据 search 过滤问题列表
   const filteredFlashcards = flashcards.filter((fc) =>
@@ -218,24 +191,6 @@ const FlashcardContainer: React.FC<FlashcardContainerProps> = ({
           + New
         </button>
         {/* 问题列表 - 可滚动区域 */}
-        {/* <div className="flex-1 overflow-y-auto p-4">
-          <ul className="divide-y divide-gray-200">
-            {filteredFlashcards.map((fc) => (
-              <li
-                key={fc.id}
-                className={`py-2 px-2 cursor-pointer hover:bg-blue-50 transition rounded ${
-                  selected?.id === fc.id ? 'bg-blue-100' : ''
-                }`}
-                onClick={() => handleSelect(fc)}
-              >
-                {fc.question}
-              </li>
-            ))}
-            {filteredFlashcards.length === 0 && (
-              <li className="py-2 px-2 text-gray-400 text-sm">No results</li>
-            )}
-          </ul>
-        </div> */}
         <div className="flex-1 overflow-y-auto p-4">
           <ul className="divide-y divide-gray-200">
             {filteredFlashcards.map((fc) => (
@@ -424,7 +379,8 @@ const FlashcardContainer: React.FC<FlashcardContainerProps> = ({
       <Modal
         isOpen={showForm}
         onClose={() => setShowForm(false)}
-        onSubmit={handleCreate}
+        onSubmit={(data) => createFlashcardMutation.mutate(data)}
+        isPending={createFlashcardMutation.isPending}
       />
     </div>
   );

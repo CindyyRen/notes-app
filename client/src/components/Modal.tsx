@@ -1,41 +1,31 @@
 // Modal.tsx
-import React from 'react';
+import React, { useState } from 'react';
 import { TagInput } from './TagInput';
+// import type { Difficulty } from '../types';
+import type { Difficulty, FlashcardInput } from '../types';
 
 interface ModalProps {
   isOpen: boolean;
   onClose: () => void;
-  onSubmit: (data: {
-    question: string;
-    answer: string;
-    category: string;
-    difficulty: string;
-    tags: string[];
-  }) => void;
+  onSubmit: (data: FlashcardInput) => void;
+  isPending: boolean; // ✅ 单独的 prop
 }
 
-const Modal: React.FC<ModalProps> = ({ isOpen, onClose, onSubmit }) => {
+const Modal: React.FC<ModalProps> = ({
+  isOpen,
+  onClose,
+  onSubmit,
+  isPending,
+}) => {
   const [question, setQuestion] = React.useState('');
   const [answer, setAnswer] = React.useState('');
   const [category, setCategory] = React.useState('REACT');
-  const [difficulty, setDifficulty] = React.useState('EASY');
+  const [difficulty, setDifficulty] = useState<Difficulty>('EASY');
+
   const [tags, setTags] = React.useState<string[]>([]);
   // const [tagInput, setTagInput] = React.useState('');
 
   if (!isOpen) return null;
-
-  // const handleAddTag = () => {
-  //   const newTag = tagInput.trim();
-  //   if (newTag && !tags.includes(newTag)) {
-  //     setTags([...tags, newTag]);
-  //   }
-  //   setTagInput('');
-  // };
-
-  // const handleRemoveTag = (tag: string) => {
-  //   setTags(tags.filter((t) => t !== tag));
-  // };
-
   return (
     <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
       <div className="bg-white rounded-lg shadow-lg w-96 p-6 max-h-[90vh] overflow-y-auto">
@@ -67,7 +57,7 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose, onSubmit }) => {
 
         <select
           value={difficulty}
-          onChange={(e) => setDifficulty(e.target.value)}
+          onChange={(e) => setDifficulty(e.target.value as Difficulty)}
           className="w-full border border-gray-300 rounded p-2 mb-4"
         >
           <option value="EASY">Easy</option>
@@ -75,39 +65,6 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose, onSubmit }) => {
           <option value="HARD">Hard</option>
         </select>
 
-        {/* Tags 输入 */}
-        {/* <div className="mb-4">
-          <label className="block mb-1 font-medium">Tags</label>
-          <div className="flex flex-wrap gap-2 mb-1">
-            {tags.map((tag) => (
-              <span
-                key={tag}
-                className="bg-green-500 text-white px-2 py-0 rounded-lg cursor-pointer"
-                onClick={() => handleRemoveTag(tag)}
-              >
-                {tag} ×
-              </span>
-            ))}
-          </div>
-          <div className="flex gap-2 ">
-            <input
-              type="text"
-              placeholder="Add tag"
-              value={tagInput}
-              onChange={(e) => setTagInput(e.target.value)}
-              className="flex-1 border border-gray-300 rounded p-2 focus:outline-none"
-              onKeyDown={(e) =>
-                e.key === 'Enter' && (e.preventDefault(), handleAddTag())
-              }
-            />
-            <button
-              className="px-2 py-1 bg-blue-500 text-white rounded hover:bg-blue-600"
-              onClick={handleAddTag}
-            >
-              Add
-            </button>
-          </div>
-        </div> */}
         <TagInput tags={tags} setTags={setTags} />
 
         <div className="flex justify-end space-x-2 mt-2">
@@ -119,6 +76,7 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose, onSubmit }) => {
           </button>
           <button
             className="px-4 py-1 bg-blue-500 text-white rounded hover:bg-blue-600"
+            disabled={isPending} // ✅ 使用单独的 prop
             onClick={() => {
               onSubmit({ question, answer, category, difficulty, tags });
               onClose();

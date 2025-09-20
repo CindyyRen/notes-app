@@ -135,27 +135,250 @@
 //     await prisma.$disconnect();
 //   });
 // prisma/seed.js
-const { PrismaClient } = require('@prisma/client');
+
+
+
+const { PrismaClient, Difficulty } = require("@prisma/client");
 const prisma = new PrismaClient();
 
 async function main() {
-  // 先查询所有 flashcards
-  const flashcards = await prisma.flashcard.findMany();
+  const flashcards = [
+  {
+    "question": "Core Concepts - Redux",
+    "answer": "Predictable state container for JavaScript apps, implementing unidirectional data flow with actions, reducers, and store",
+    "category": "React",
+    "tags": ["Redux", "Redux"],
+    "difficulty": "EASY"
+  },
+  {
+    "question": "Core Concepts - Store",
+    "answer": "Single source of truth that holds the complete state tree of the application",
+    "category": "React",
+    "tags": ["Redux", "Store"],
+    "difficulty": "EASY"
+  },
+  {
+    "question": "Core Concepts - Action",
+    "answer": "Plain JavaScript object that describes what happened, must have a type property",
+    "category": "React",
+    "tags": ["Redux", "Action"],
+    "difficulty": "EASY"
+  },
+  {
+    "question": "Core Concepts - Action Creator",
+    "answer": "Function that returns an action object",
+    "category": "React",
+    "tags": ["Redux", "Action Creator"],
+    "difficulty": "EASY"
+  },
+  {
+    "question": "Core Concepts - Reducer",
+    "answer": "Pure function that takes current state and action, returns new state",
+    "category": "React",
+    "tags": ["Redux", "Reducer"],
+    "difficulty": "MEDIUM"
+  },
+  {
+    "question": "Core Concepts - Dispatch",
+    "answer": "Method to send actions to the store to trigger state changes",
+    "category": "React",
+    "tags": ["Redux", "Dispatch"],
+    "difficulty": "EASY"
+  },
+  {
+    "question": "Core Concepts - Selector",
+    "answer": "Function that selects/extracts data from the store state",
+    "category": "React",
+    "tags": ["Redux", "Selector"],
+    "difficulty": "MEDIUM"
+  },
+  {
+    "question": "Core Concepts - Middleware",
+    "answer": "Functions that intercept actions before they reach reducers",
+    "category": "React",
+    "tags": ["Redux", "Middleware"],
+    "difficulty": "MEDIUM"
+  },
+  {
+    "question": "Redux Principles - Single Source of Truth",
+    "answer": "Application state is stored in a single store",
+    "category": "React",
+    "tags": ["Redux", "Single Source of Truth"],
+    "difficulty": "EASY"
+  },
+  {
+    "question": "Redux Principles - State is Read-Only",
+    "answer": "State can only be changed by dispatching actions",
+    "category": "React",
+    "tags": ["Redux", "State is Read-Only"],
+    "difficulty": "EASY"
+  },
+  {
+    "question": "Redux Principles - Changes Made with Pure Functions",
+    "answer": "Reducers must be pure functions without side effects",
+    "category": "React",
+    "tags": ["Redux", "Changes Made with Pure Functions"],
+    "difficulty": "MEDIUM"
+  },
+  {
+    "question": "Redux Principles - Immutable Updates",
+    "answer": "State updates must return new objects, never mutate existing state",
+    "category": "React",
+    "tags": ["Redux", "Immutable Updates"],
+    "difficulty": "MEDIUM"
+  },
+  {
+    "question": "Redux Toolkit (RTK) - Redux Toolkit",
+    "answer": "Official recommended toolset for efficient Redux development",
+    "category": "React",
+    "tags": ["Redux", "Redux Toolkit"],
+    "difficulty": "EASY"
+  },
+  {
+    "question": "Redux Toolkit (RTK) - configureStore",
+    "answer": "RTK function that sets up store with good defaults and middleware",
+    "category": "React",
+    "tags": ["Redux", "configureStore"],
+    "difficulty": "MEDIUM"
+  },
+  {
+    "question": "Redux Toolkit (RTK) - createSlice",
+    "answer": "Function that generates action creators and reducers in one place",
+    "category": "React",
+    "tags": ["Redux", "createSlice"],
+    "difficulty": "MEDIUM"
+  },
+  {
+    "question": "Redux Toolkit (RTK) - createAsyncThunk",
+    "answer": "Utility for handling asynchronous logic with pending/fulfilled/rejected states",
+    "category": "React",
+    "tags": ["Redux", "createAsyncThunk"],
+    "difficulty": "MEDIUM"
+  },
+  {
+    "question": "Redux Toolkit (RTK) - createEntityAdapter",
+    "answer": "Utilities for managing normalized state collections",
+    "category": "React",
+    "tags": ["Redux", "createEntityAdapter"],
+    "difficulty": "HARD"
+  },
+  {
+    "question": "Redux Toolkit (RTK) - RTK Query",
+    "answer": "Data fetching and caching solution built on Redux Toolkit",
+    "category": "React",
+    "tags": ["Redux", "RTK Query"],
+    "difficulty": "HARD"
+  },
+  {
+    "question": "Async Handling - Redux Thunk",
+    "answer": "Middleware that allows action creators to return functions instead of objects",
+    "category": "React",
+    "tags": ["Redux", "Redux Thunk"],
+    "difficulty": "MEDIUM"
+  },
+  {
+    "question": "Async Handling - Redux Saga",
+    "answer": "Middleware using generator functions for complex async flow control",
+    "category": "React",
+    "tags": ["Redux", "Redux Saga"],
+    "difficulty": "HARD"
+  },
+  {
+    "question": "Async Handling - Redux Observable",
+    "answer": "RxJS-based middleware for handling complex async operations",
+    "category": "React",
+    "tags": ["Redux", "Redux Observable"],
+    "difficulty": "HARD"
+  },
+  {
+    "question": "Async Handling - Side Effects",
+    "answer": "Asynchronous operations like API calls, handled outside reducers",
+    "category": "React",
+    "tags": ["Redux", "Side Effects"],
+    "difficulty": "MEDIUM"
+  },
+  {
+    "question": "React Integration - React-Redux",
+    "answer": "Official React bindings for Redux",
+    "category": "React",
+    "tags": ["Redux", "React-Redux"],
+    "difficulty": "EASY"
+  },
+  {
+    "question": "React Integration - useSelector",
+    "answer": "React hook to extract data from Redux store state",
+    "category": "React",
+    "tags": ["Redux", "useSelector"],
+    "difficulty": "EASY"
+  },
+  {
+    "question": "React Integration - useDispatch",
+    "answer": "React hook to get dispatch function for sending actions",
+    "category": "React",
+    "tags": ["Redux", "useDispatch"],
+    "difficulty": "EASY"
+  },
+  {
+    "question": "React Integration - connect",
+    "answer": "Higher-order component that connects React components to Redux store",
+    "category": "React",
+    "tags": ["Redux", "connect"],
+    "difficulty": "MEDIUM"
+  },
+  {
+    "question": "React Integration - Provider",
+    "answer": "React component that makes Redux store available to nested components",
+    "category": "React",
+    "tags": ["Redux", "Provider"],
+    "difficulty": "EASY"
+  },
+  {
+    "question": "Advanced Patterns - Normalized State",
+    "answer": "Storing relational data in flat structures with IDs and lookups",
+    "category": "React",
+    "tags": ["Redux", "Normalized State"],
+    "difficulty": "MEDIUM"
+  },
+  {
+    "question": "Advanced Patterns - Redux DevTools",
+    "answer": "Browser extension for debugging Redux state changes",
+    "category": "React",
+    "tags": ["Redux", "Redux DevTools"],
+    "difficulty": "EASY"
+  },
+  {
+    "question": "Advanced Patterns - Time Travel Debugging",
+    "answer": "Ability to replay actions and examine state at any point",
+    "category": "React",
+    "tags": ["Redux", "Time Travel Debugging"],
+    "difficulty": "MEDIUM"
+  },
+  {
+    "question": "Advanced Patterns - Hot Reloading",
+    "answer": "Development feature to update reducers without losing state",
+    "category": "React",
+    "tags": ["Redux", "Hot Reloading"],
+    "difficulty": "MEDIUM"
+  },
+  {
+    "question": "Advanced Patterns - Store Enhancer",
+    "answer": "Higher-order function that adds capabilities to store",
+    "category": "React",
+    "tags": ["Redux", "Store Enhancer"],
+    "difficulty": "HARD"
+  }
+]
 
   for (const card of flashcards) {
-    if (card.question.includes("+")) {
-      const newQuestion = card.question.replace(/\s*\+\s*/, " - ");
-      await prisma.flashcard.update({
-        where: { id: card.id },
-        data: { question: newQuestion }
-      });
-      console.log(`Updated card id ${card.id}: ${card.question} -> ${newQuestion}`);
-    }
+    await prisma.flashcard.create({ data: card });
   }
-
-  console.log("All + signs replaced with -.");
 }
 
 main()
-  .catch(e => console.error(e))
-  .finally(async () => await prisma.$disconnect());
+  .catch((e) => {
+    console.error(e);
+    process.exit(1);
+  })
+  .finally(async () => {
+    await prisma.$disconnect();
+  });
